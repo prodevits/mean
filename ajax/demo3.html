@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Document</title>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#right").hide();   
+    $("#btn1").click(function(){
+        $("#out1").hide();
+        $("#out2").html('');  
+        $.ajax({
+            url:"http://demo.itvidya.in/indian-states.php",
+            method:'get',
+            success:function(responseData){
+                let s="<table border='1'>";
+                    let states=JSON.parse(responseData);
+                    for(let st of states){
+                        s=s+`<tr><td>${st.code}</td><td>${st.name}</td></tr>`;
+                    }
+                    s=s+"</table>"
+               $("#out1").html(s);
+               $("#out1").slideDown();
+               $("#right").show();
+            }
+        });
+    });
+
+
+   $("#btn2").click(function(){
+       let stateCode=$("#state").val();
+       $("#out2").html('');  
+       $.ajax({
+            url:"http://demo.itvidya.in/indian-cities.php",
+            method:'get',
+            data:{state:stateCode},
+            success:function(responseData){
+                console.log(responseData);
+                
+                if(responseData && responseData!='null'){
+                    let cities=JSON.parse(responseData);
+                    let s="<table border='1'>";                    
+                    for(let ct of cities){
+                        s=s+`<tr><td>${ct}</td></tr>`;
+                    }
+                    s=s+"</table>"
+               $("#out2").html(s);
+                }else{
+                    $("#out2").html("Invalid State Code");
+                }
+            }
+        });
+   });
+});
+</script>
+
+<style>
+#left,#right{
+    width:48%;
+    float: left;
+    
+}
+</style>
+</head>
+<body>
+    <div id="left">
+            <button id="btn1">Load States</button>
+            <p id="out1">
+            </p>
+    </div>
+    <div id="right">
+        Enter State Code
+            <input type="text" id="state">
+            <button id="btn2">Get Cities</button>
+            <p id="out2">
+                </p>
+        </div>
+    
+</body>
+</html>

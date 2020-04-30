@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Document</title>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn").click(function(){
+        $.ajax({
+            url:"http://demo.itvidya.in/indian-states.php",
+            method:'get',
+            success:function(responseData){
+                let s="<table border='1'>";
+                    let states=JSON.parse(responseData);
+                    for(let st of states){
+                        s=s+`<tr><td>${st.code}</td><td>${st.name}</td></tr>`;
+                    }
+                    s=s+"</table>"
+               $("#out").html(s);
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+    <button id="btn">Load States</button>
+    <p id="out">
+
+    </p>
+</body>
+</html>

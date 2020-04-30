@@ -16,6 +16,6 @@ class Demo{
 let obj=new Demo();
 obj.show();
 console.log(obj.x);
-console.log(obj.y); //Error
-console.log(obj.z); //Error
+// console.log(obj.y); //Error
+// console.log(obj.z); //Error
 

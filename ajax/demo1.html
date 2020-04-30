@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Document</title>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn").click(function(){
+        $.ajax({
+            url:"http://demo.itvidya.in/indian-states.php",
+            method:'get',
+            success:function(responseData){
+               $("#out").html(responseData);
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+    <button id="btn">Load States</button>
+    <p id="out"></p>
+</body>
+</html>
