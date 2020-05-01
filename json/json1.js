@@ -3,3 +3,12 @@ console.log(emp);
 let jsonData=JSON.stringify(emp);
 console.log(jsonData);
 
+let x=[123,567,89];
+let s=JSON.stringify(x);
+console.log(s);
+console.log(typeof x);
+console.log(typeof s);
+
+
+
+
