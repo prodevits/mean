@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Document</title>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    function loadStates(){
+        $.ajax({
+            url:"http://demo.itvidya.in/indian-states.php",
+            method:'get',
+            success:function(responseData){
+                let s="<option value='NA'>Select</option>";
+                    let states=JSON.parse(responseData);
+                    for(let st of states){
+                        s=s+`<option value="${st.code}">${st.name}</option>`;
+                    }                    
+               $("#state").html(s);
+            }
+        });
+    }
+    function loadCities(stateCode){
+        $.ajax({
+            url:"http://demo.itvidya.in/indian-cities.php",
+            method:'get',
+            data:{state:stateCode},
+            success:function(responseData){
+                let s="<option value='NA'>Select</option>";               
+                if(responseData && responseData!='null'){
+                    let cities=JSON.parse(responseData);
+                    for(let ct of cities){
+                        s=s+`<option>${ct}</option>`;
+                    }
+                }
+                $("#city").html(s);
+                
+            }
+        });
+    }   
+
+// call loadState()
+loadStates();
+
+// event on state change to load cities
+$("#state").change(function(){
+    let stateCode=$(this).val();
+    loadCities(stateCode);
+});
+
+});
+</script>
+<style>
+select{
+    width:200px;
+}
+</style>
+</head>
+<body>
+    <h2>AJAX Demo </h2>
+    <h3>Dynamic States Loading and City Loading</h3>
+    <hr>
+    Select State
+   <select id="state">
+       <option value="NA">Select</option>
+   </select>
+   <br>
+   <br>
+   Select City
+   <select id="city">
+        <option value="NA">Select</option>
+   </select>    
+</body>
+</html>

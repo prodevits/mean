@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Employee</title>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    function loadEmps(){
+        $.ajax({
+            url:"http://demo.itvidya.in/emps.php",
+            method:'get',
+            success:function(emps){
+                   let s="<table border='1' width='500' cellpadding='5'>";
+                   for(let e of emps){
+                        s=s+`<tr><td>${e.empid}</td><td>${e.name}</td><td>${e.city}</td><td>${e.salary}</td></tr>`;
+                    }
+                    s=s+"</table>"
+               $("#elist").html(s);
+            }
+        });
+    }
+
+    loadEmps();
+});
+</script>
+</head>
+<body>
+    <h2>Employee List</h2>
+    <div id="elist"></div>
+</body>
+</html>
