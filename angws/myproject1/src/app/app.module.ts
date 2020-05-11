@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EmpComponent } from './emp/emp.component';
+import { StuComponent } from './stu/stu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmpComponent
+    EmpComponent,
+    StuComponent
   ],
   imports: [
     BrowserModule

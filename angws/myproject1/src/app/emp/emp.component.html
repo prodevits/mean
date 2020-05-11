@@ -2,3 +2,24 @@
 Name : {{name}}
 <br>
 Age : {{age}}
+<br>
+Age Group : {{ageGroup()}}
+<br>
+Basic Salary: {{basic}}
+<br>
+Allowances: {{allowance}}
+<br>
+Deductions: {{deduction}}
+<br>
+Gross Salary: {{grossSalary()}}
+<br>
+{{count}}
+<br>
+<button (click)="doSomething()">Click</button>
+<br>
+Enter Name : <input type="text"  #nm>
+<button (click)="doSubmit(nm.value)">Submit</button>
+
+<hr>
+<button [disabled]='!active'>Pre</button>
+<button [disabled]='active'>Next</button>
