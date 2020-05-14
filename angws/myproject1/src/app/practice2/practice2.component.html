@@ -1,0 +1,82 @@
+<h1>Practice2</h1>
+<h3>Assignment1</h3>
+No1 : <input type="text" #n1>
+<br>
+<br>
+No2 : <input type="text" #n2>
+<br>
+<br>
+Operations
+<input type="checkbox" value="A" (click)="calculate($event,n1.value,n2.value)"> Add
+<input type="checkbox" value="S" (click)="calculate($event,n1.value,n2.value)"> Sub
+<input type="checkbox" value="D" (click)="calculate($event,n1.value,n2.value)"> Div
+<input type="checkbox" value="M" (click)="calculate($event,n1.value,n2.value)"> Multiplication
+
+<h4>Results:</h4>
+<p>{{resultAdd}}</p>
+<p>{{resultSub}}</p>
+<p>{{resultDiv}}</p>
+<p>{{resultMult}}</p>
+<hr>
+
+
+<h3>Assignment2 : With Button Click</h3>
+
+Select Sate
+<select #st>
+    <option>Select</option>
+    <option>MP</option>
+    <option>UP</option>
+    <option>MH</option>
+</select>
+<button (click)="getCapital(st.value)">Get Capital</button>
+<p>{{capital}}</p>
+
+<h3>Assignment2 :  Without Button (change event on select control)</h3>
+Select Sate
+<select (change)="showCapital($event)">
+    <option>Select</option>
+    <option>MP</option>
+    <option>UP</option>
+    <option>MH</option>
+</select>
+<p>{{capital1}}</p>
+
+
+
+<h3>Assignment3</h3>
+Enter Text1
+<input type="text" value="{{txtValue1}}" #txt1>
+<br>
+<br>
+Enter Text1
+<input type="text" value="{{txtValue2}}" #txt2>
+<br>
+<br>
+<button (click)="exchange(txt1.value,txt2.value)">Exchange Values</button>
+
+<hr>
+<h3>Assignment5</h3>
+<input type="checkbox" (click)="validate($event)">
+Agree with terma and conditions
+<br>
+<br>
+<button [disabled]="!agree">Next</button>
+
+<hr>
+<h3>Assignment6</h3>
+<input type="text" (keyup)="changeText($event)">
+<br>
+<p>{{txtData}}</p>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

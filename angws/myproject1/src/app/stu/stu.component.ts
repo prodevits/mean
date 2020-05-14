@@ -2,15 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: '.app-stu',
-  template: `<h2>Student Management</h2>
-              <p>Name={{name}}</p>`,
+  templateUrl: './stu.component.html',
   styles: [`h2{color:#00F;}`,`p{background:#FF0;}`]
 })
-export class StuComponent implements OnInit {
-  name="Rohan";
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class StuComponent {
+  sname="Rohan";
+  age=21;
+  state="MP";
 }

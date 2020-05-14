@@ -13,7 +13,7 @@ export class EmpComponent implements OnInit {
   deduction=1500;
   count=0;
   active=true;
-  
+
   constructor() { }
 
   ageGroup(){

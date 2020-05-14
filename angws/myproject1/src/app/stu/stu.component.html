@@ -1,1 +1,29 @@
-<h2>stu works!</h2>
+<h2>Two way data binding Demo</h2>
+Enter Name : <input type="text" [(ngModel)]="sname">
+<br>
+<br>
+Enter Age: <input type="text" [(ngModel)]="age">
+<br>
+<br>
+<input type="checkbox" [(ngModel)]="agree"> Agree with terms and conditions.
+<br>
+<br>
+<button [disabled]="!agree">Next</button>
+<hr>
+<p>Name: {{sname}}</p>
+<p>Age: {{age}}</p>
+<hr>
+Select State <select [(ngModel)]="state">
+    <option value="MP">MP</option>
+    <option value="UP">UP</option>
+    <option value="MH">MH</option>
+    <option value="OT">Other</option>
+</select>
+<br>
+Capital :
+<div [ngSwitch]="state">
+    <p *ngSwitchCase="'MP'">BHOPAL</p>
+    <p *ngSwitchCase="'UP'">LAKHNOW</p>
+    <p *ngSwitchCase="'MH'">MUMBAI</p>
+    <p *ngSwitchDefault>Not Found</p>
+</div>
