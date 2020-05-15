@@ -1,0 +1,54 @@
+<h2>two-way-binding </h2>
+<h3>Demo1</h3>
+<input type="text" [(ngModel)]="txtData">
+<br>
+<p>{{txtData}}</p>
+<hr>
+
+<h3>Demo2</h3>
+Enter Name
+<input type="text" [(ngModel)]="nm">
+<br>
+<br>
+Enter Age
+<input type="text" [(ngModel)]="age">
+<br>
+<br>
+Enter Salary
+<input type="text" [(ngModel)]="salary">
+<br>
+<br>
+<button (click)="process()">Submit</button>
+<div [hidden]="!emp.name">
+<p>Employee Name : {{emp.name}}</p>
+<p>Employee Age: {{emp.age}}</p>
+<p>Employee Salary : {{emp.salary}}</p>
+</div>
+
+
+<hr>
+<h3>Demo3</h3>
+<input type="checkbox" [(ngModel)]="agree">
+Agree with terma and conditions
+<br>
+<br>
+<button [disabled]="!agree">Next</button>
+
+
+<hr>
+<h3>Demo4</h3>
+Select Sate
+<select [(ngModel)]="state">
+    <option>Select</option>
+    <option>MP</option>
+    <option>UP</option>
+    <option>MH</option>
+</select>
+<button (click)="getCapital()">Get Capital</button>
+<p>{{capital}}</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>

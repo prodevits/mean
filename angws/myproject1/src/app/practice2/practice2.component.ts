@@ -17,9 +17,11 @@ export class Practice2Component implements OnInit {
   resultMult: string;
 
   calculate(event: any, v1: string, v2: string) {
+
     let chk = event.target;
     console.log(chk.checked);
     console.log(chk.value);
+    
     let a = parseFloat(v1);
     let b = parseFloat(v2);
 

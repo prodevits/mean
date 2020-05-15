@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { EmpComponent } from './emp/emp.component';
 import { StuComponent } from './stu/stu.component';
 import { Practice2Component } from './practice2/practice2.component';
+import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpComponent,
     StuComponent,
-    Practice2Component
+    Practice2Component,
+    TwoWayBindingComponent
   ],
   imports: [
     BrowserModule,
