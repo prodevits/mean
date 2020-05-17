@@ -7,6 +7,7 @@ import { EmpComponent } from './emp/emp.component';
 import { StuComponent } from './stu/stu.component';
 import { Practice2Component } from './practice2/practice2.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+import { StrDirsComponent } from './str-dirs/str-dirs.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.compon
     EmpComponent,
     StuComponent,
     Practice2Component,
-    TwoWayBindingComponent
+    TwoWayBindingComponent,
+    StrDirsComponent
   ],
   imports: [
     BrowserModule,
