@@ -7,6 +7,7 @@ No City Found
 </div>  
 
 <div *ngIf="cities.length>0">
+    
 <p *ngFor="let ct of cities, let i=index">
     {{i+1}} :  {{ct | uppercase}}</p>
 </div>

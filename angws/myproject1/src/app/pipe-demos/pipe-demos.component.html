@@ -1,0 +1,54 @@
+<h2>Pipe Demo</h2>
+
+<p>{{message}}</p>
+<p>{{message | slice:8:17}}</p>
+<hr>
+Grouth Rate : {{grothRate |percent}}
+<br>
+Grouth Rate : {{grothRate |percent:'2.2-3'}}
+<br>
+Profit : {{profit |percent:'2.2-3'}}
+<hr>
+Amount : {{amount}}
+<br>
+Amount : {{amount | number}}
+<br>
+Amount : {{amount| number:'5.2-2'}}
+<br>
+Amount : {{amount| currency}}
+<br>
+Amount : {{amount| currency:'INR'}}
+<br>
+Amount : {{amount| currency:'INR':'symbol':'5.2-3'}}
+<br>
+Amount : {{amount| currency:'Rs.':'symbol'}}
+<br>
+Amount : {{amount| currency:'Rs.':'symbol':'5.2-3'}}
+<br>
+<hr>
+<table border="1" width="600">
+        <tr>
+            <th>#</th>
+            <th>Empid</th>
+            <th>Gender</th>
+            <th>Name</th>
+            <th>City</th>           
+            <th>DOB</th>
+            <th>Experience</th>
+            <th>Salary</th>
+            <th>Grade</th>  
+            <th>Bonus</th>
+        </tr>
+    <tr *ngFor="let e of emps, let i=index">
+        <td>{{i+1}}</td>
+        <td>{{e.empid}}</td>
+        <td>{{e.gender}}</td>
+        <td>{{e.name | uppercase |nameTitle :e.gender }}</td>
+        <td>{{e.city | uppercase}}</td>       
+        <td>{{e.dob | date:'dd/MM/yyyy'}}</td>
+        <td>{{e.experience}}</td>
+        <td>{{e.salary | currency:'INR'}}</td>
+        <td>{{e.salary | grade}} </td>
+        <td>{{e.salary | bonus : e.experience : e.gender |currency:'INR' }}</td>
+    </tr>
+    </table>

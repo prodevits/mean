@@ -8,6 +8,12 @@ import { StuComponent } from './stu/stu.component';
 import { Practice2Component } from './practice2/practice2.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { StrDirsComponent } from './str-dirs/str-dirs.component';
+import { Practice3Component } from './practice3/practice3.component';
+import { Practice4Component } from './practice4/practice4.component';
+import { PipeDemosComponent } from './pipe-demos/pipe-demos.component';
+import {GradePipe} from './pipe-demos/grade.pipe';
+import { NameTitlePipe } from './pipe-demos/name-title.pipe';
+import { BonusPipe } from './pipe-demos/bonus.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { StrDirsComponent } from './str-dirs/str-dirs.component';
     StuComponent,
     Practice2Component,
     TwoWayBindingComponent,
-    StrDirsComponent
+    StrDirsComponent,
+    Practice3Component,
+    Practice4Component,
+    PipeDemosComponent,
+    GradePipe,
+    NameTitlePipe,
+    BonusPipe
   ],
   imports: [
     BrowserModule,

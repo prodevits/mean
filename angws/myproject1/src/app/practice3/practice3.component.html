@@ -1,0 +1,50 @@
+<h2>practice3 </h2>
+<h3>Employee Management</h3>
+<table>
+    <tr>
+        <td>Empid:</td>
+        <td>        
+            <input type="text" [(ngModel)]="empid">
+        </td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td><input type="text" [(ngModel)]="name"></td>
+    </tr>
+    <tr>
+        <td>City:</td>
+        <td><input type="text" [(ngModel)]="city"></td>
+    </tr>
+    <tr>
+        <td>Salary:</td>
+        <td><input type="text" [(ngModel)]="salary"></td>
+    </tr>
+</table>
+<br>
+<button (click)="add()"  [hidden]="editMode">Add Employee</button>
+<hr>
+
+<table border="1" width="600">
+    <tr>
+        <th>#</th>
+        <th>Empid</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Salary</th>
+        <th>Grade</th>
+        <th>Action</th>
+    </tr>
+<tr *ngFor="let e of emps, let i=index">
+    <td>{{i+1}}</td>
+    <td>{{e.empid}}</td>
+    <td>{{e.name}}</td>
+    <td>{{e.city}}</td>
+    <td>{{e.salary}}</td>
+    <td>
+            <span *ngIf='e.salary<15000'> Grade C </span>
+            <span *ngIf='e.salary>=15000 && e.salary<25000'> Grade B</span>
+            <span *ngIf='e.salary>25000'> Grade A </span>            
+    </td>
+    <td><button (click)="remove(e.empid)">Remove</button></td>
+</tr>
+</table>
