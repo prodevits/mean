@@ -1,0 +1,32 @@
+<h2>Pipe with Array</h2>
+<hr>
+
+Name: <input type="text" [(ngModel)]="sn">
+<br>
+<br>
+<table border="1" width="1000">
+    <tr>
+        <th>#</th>
+        <th>Empid</th>
+        <th>Gender</th>
+        <th>Name</th>
+        <th>City</th>           
+        <th>DOB</th>
+        <th>Experience</th>
+        <th>Salary</th>
+        <th>Grade</th>  
+        <th>Bonus</th>
+    </tr>
+<tr *ngFor="let e of emps | nameFilter: sn | sort, let i=index">
+    <td>{{i+1}}</td>
+    <td>{{e.empid}}</td>
+    <td>{{e.gender}}</td>
+    <td>{{e.name | uppercase |nameTitle :e.gender }}</td>
+    <td>{{e.city | uppercase}}</td>       
+    <td>{{e.dob | date:'dd/MM/yyyy'}}</td>
+    <td>{{e.experience}}</td>
+    <td>{{e.salary | currency:'INR'}}</td>
+    <td>{{e.salary | grade}} </td>
+    <td>{{e.salary | bonus : e.experience : e.gender |currency:'INR' }}</td>
+</tr>
+</table>

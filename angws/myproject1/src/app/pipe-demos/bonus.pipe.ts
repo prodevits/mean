@@ -9,7 +9,6 @@ export class BonusPipe implements PipeTransform {
     let bonus:number=0;
     if(gender=='female')
       bonus=500;
-
     if(exp>15)
       bonus+=salary*1.5;   //50%
     else if(exp>10)
@@ -20,5 +19,4 @@ export class BonusPipe implements PipeTransform {
       bonus+=salary*1.1;     //10%
     return bonus.toFixed(2);
   }
-
 }

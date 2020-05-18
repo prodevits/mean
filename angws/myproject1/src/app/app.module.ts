@@ -14,6 +14,9 @@ import { PipeDemosComponent } from './pipe-demos/pipe-demos.component';
 import {GradePipe} from './pipe-demos/grade.pipe';
 import { NameTitlePipe } from './pipe-demos/name-title.pipe';
 import { BonusPipe } from './pipe-demos/bonus.pipe';
+import { PipeDemos1Component } from './pipe-demos1/pipe-demos1.component';
+import { NameFilterPipe } from './pipe-demos1/name-filter.pipe';
+import { SortPipe } from './pipe-demos1/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { BonusPipe } from './pipe-demos/bonus.pipe';
     PipeDemosComponent,
     GradePipe,
     NameTitlePipe,
-    BonusPipe
+    BonusPipe,
+    PipeDemos1Component,
+    NameFilterPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

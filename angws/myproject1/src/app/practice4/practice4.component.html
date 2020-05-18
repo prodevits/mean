@@ -9,6 +9,12 @@
         </td>
     </tr>
     <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" [(ngModel)]="gender" value="male"> Male 
+                <input type="radio" [(ngModel)]="gender" value="female"> Feale </td>
+        </tr>
+    <tr>
         <td>Name:</td>
         <td><input type="text" [(ngModel)]="name"></td>
     </tr>
@@ -17,9 +23,14 @@
         <td><input type="text" [(ngModel)]="city"></td>
     </tr>
     <tr>
+            <td>Is NRI</td>
+            <td><input type="checkbox" [(ngModel)]="nri"></td>
+        </tr>
+    <tr>
         <td>Salary:</td>
         <td><input type="text" [(ngModel)]="salary"></td>
     </tr>
+   
 </table>
 <br>
 <button (click)="add()"  [hidden]="editMode">Add Employee</button>
@@ -34,7 +45,9 @@
         <th>#</th>
         <th>Empid</th>
         <th>Name</th>
+        <th>Gender</th>
         <th>City</th>
+        <th>NRI</th>
         <th>Salary</th>
         <th>Grade</th>
         <th colspan="2">Action</th>
@@ -43,7 +56,9 @@
     <td>{{i+1}}</td>
     <td>{{e.empid}}</td>
     <td>{{e.name}}</td>
+    <td>{{e.gender}}</td>    
     <td>{{e.city}}</td>
+    <td>{{e.nri?'Yes':'NO'}}</td>
     <td>{{e.salary}}</td>
     <td>
             <span *ngIf='e.salary<15000'> Grade C </span>
