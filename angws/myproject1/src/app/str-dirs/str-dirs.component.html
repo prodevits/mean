@@ -1,13 +1,41 @@
+
+Enter City:
 <input type="text" [(ngModel)]="cname">
-<button (click)="addCity()">Add</button>
+<button (click)="add()">Add City</button>
 
 <hr>
-<div *ngIf="cities.length==0">
-No City Found
-</div>  
+<h3 *ngIf="cities.length==0">No City Found</h3>
+<table border="1" width="300">
+    <tr *ngFor="let ct of cities, let i=index">
+        <td>{{i+1}}</td>
+        <td>{{ct}}</td>
+    </tr>
+</table>
+<hr>
+<ul>
+    <li *ngFor="let ct of cities, let i=index">{{i}} : {{ct}}</li>
+</ul>
 
-<div *ngIf="cities.length>0">
-    
-<p *ngFor="let ct of cities, let i=index">
-    {{i+1}} :  {{ct | uppercase}}</p>
-</div>
+<hr>
+
+Enter Salary 
+<input type="text" [(ngModel)]="salary">
+<button (click)="addSalary()"> Add</button>
+
+<hr>
+<table border="1">
+    <tr *ngFor="let sal of salaryList">
+        <td>{{sal}}</td>
+        <td>
+            <span *ngIf="sal<10000">
+                    Grade C
+            </span>
+            <span *ngIf="sal>=10000 && sal<20000">
+                    Grade B
+            </span>
+            <span *ngIf="sal>=20000">
+                    Grade A
+            </span>
+        </td>
+    </tr>
+</table>
