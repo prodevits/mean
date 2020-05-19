@@ -21,7 +21,7 @@ Name: <input type="text" [(ngModel)]="sn">
     <td>{{i+1}}</td>
     <td>{{e.empid}}</td>
     <td>{{e.gender}}</td>
-    <td>{{e.name | uppercase |nameTitle :e.gender }}</td>
+    <td>{{e.name |nameTitle :e.gender }}</td>
     <td>{{e.city | uppercase}}</td>       
     <td>{{e.dob | date:'dd/MM/yyyy'}}</td>
     <td>{{e.experience}}</td>
@@ -30,3 +30,5 @@ Name: <input type="text" [(ngModel)]="sn">
     <td>{{e.salary | bonus : e.experience : e.gender |currency:'INR' }}</td>
 </tr>
 </table>
+
+<h3>Max Salary Employee ={{emps | max | json}}</h3>

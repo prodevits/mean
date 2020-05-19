@@ -17,7 +17,7 @@ export class PipeDemosComponent implements OnInit {
   message="This is pipe demo example!";
   amount=2345.678;
   grothRate=0.67;
-  profit=0.05893;
+  profit=0.0589356;
   constructor() { }
 
   ngOnInit() {

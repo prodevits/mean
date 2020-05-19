@@ -17,6 +17,12 @@ import { BonusPipe } from './pipe-demos/bonus.pipe';
 import { PipeDemos1Component } from './pipe-demos1/pipe-demos1.component';
 import { NameFilterPipe } from './pipe-demos1/name-filter.pipe';
 import { SortPipe } from './pipe-demos1/sort.pipe';
+import {HelloPipe} from './pipe-demos/hello.pipe';
+import { MaxPipe } from './pipe-demos1/max.pipe';
+import { Practice5Component } from './practice5/practice5.component';
+import { SearchPipe } from './practice5/search.pipe';
+import { SortByPipe } from './practice5/sort-by.pipe';
+import { SalaryFilterPipe } from './practice5/salary-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { SortPipe } from './pipe-demos1/sort.pipe';
     BonusPipe,
     PipeDemos1Component,
     NameFilterPipe,
-    SortPipe
+    SortPipe,
+    HelloPipe,
+    MaxPipe,
+    Practice5Component,
+    SearchPipe,
+    SortByPipe,
+    SalaryFilterPipe
   ],
   imports: [
     BrowserModule,

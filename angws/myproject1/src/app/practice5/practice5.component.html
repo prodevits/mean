@@ -1,0 +1,85 @@
+<h2>practice5: Pipe Assignments</h2>
+<hr>
+<table>
+        <tr>
+            <td>Empid:</td>
+            <td>
+                     <input type="text" [(ngModel)]="empid">
+            </td>
+        </tr>
+        <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" [(ngModel)]="gender" value="male"> Male 
+                    <input type="radio" [(ngModel)]="gender" value="female"> Feale </td>
+            </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" [(ngModel)]="name"></td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td><input type="text" [(ngModel)]="city"></td>
+        </tr>
+        <tr>
+                <td>DOB</td>
+                <td><input type="date" [(ngModel)]="dob"></td>
+            </tr>
+            <tr>
+                    <td>Experience</td>
+                    <td><input type="text" [(ngModel)]="experience"></td>
+                </tr>
+        <tr>
+            <td>Salary:</td>
+            <td><input type="text" [(ngModel)]="salary"></td>
+        </tr>
+       
+    </table>
+    <br>
+    <button (click)="add()">Add Employee</button>
+
+<hr>
+Sort By 
+<select [(ngModel)]="sfn">
+    <option *ngFor="let fn of fieldNames">{{fn}}</option>
+</select>
+<input type="radio" [(ngModel)]="order" value="asc"> ASC 
+<input type="radio" [(ngModel)]="order" value="desc"> DESC
+
+<br>
+<br>
+Search in Name or City : <input type="text" [(ngModel)]="searchData">
+<br>
+<br>
+Salary Range : From 
+<input type="text" [(ngModel)]="salFrom"> To
+<input type="text" [(ngModel)]="salTo">
+<br>
+<br>
+
+<table border="1" width="1000">
+    <tr>
+        <th>#</th>
+        <th>Empid</th>
+        <th>Gender</th>
+        <th>Name</th>
+        <th>City</th>           
+        <th>DOB</th>
+        <th>Experience</th>
+        <th>Salary</th>
+        <th>Grade</th>  
+        <th>Bonus</th>
+    </tr>
+<tr *ngFor="let e of emps | search:searchData | salaryFilter:salFrom:salTo |sortBy:sfn:order, let i=index">
+    <td>{{i+1}}</td>
+    <td>{{e.empid}}</td>
+    <td>{{e.gender}}</td>
+    <td>{{e.name}}</td>
+    <td>{{e.city | uppercase}}</td>       
+    <td>{{e.dob | date:'dd/MM/yyyy'}}</td>
+    <td>{{e.experience}}</td>
+    <td>{{e.salary | currency:'INR'}}</td>
+    <td>{{e.salary | grade}} </td>
+    <td>{{e.salary | bonus : e.experience : e.gender |currency:'INR' }}</td>
+</tr>
+</table>

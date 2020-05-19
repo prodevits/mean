@@ -7,8 +7,7 @@ export class NameTitlePipe implements PipeTransform {
 
   transform(name: string, gender?: string): string {
     if (!gender)
-      return name;
-      
+      return name;      
     if (gender == 'male')
       return 'Mr. ' + name;
     else if (gender == 'female')

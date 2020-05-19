@@ -39,32 +39,8 @@ export class Practice3Component implements OnInit {
     }
   }
 
-  edit(id){    
-      const index=this.emps.findIndex((e)=>e.empid==id);
-      const e=this.emps[index];
-      this.empid=e.empid;
-      this.name=e.name;
-      this.city=e.city;
-      this.salary=e.salary;   
-      this.editMode=true;      
-  }
 
-  reset(){
-    this.empid=null;
-    this.name=null;
-    this.city=null;
-    this.salary=null;
-    this.editMode=false;
+  removeByIndex(index){    
+      this.emps.splice(index,1);  
   }
-  cancel(){
-    this.reset();
-  }
-
-  update(){
-    const emp={empid:this.empid,name:this.name,city:this.city,salary:this.salary};
-    const index=this.emps.findIndex((e)=>e.empid==emp.empid);
-   this.emps[index]=emp;
-   this.reset();
-  }
-
 }
