@@ -1,0 +1,15 @@
+<h2>ViewChild Demo</h2>
+<input type="text" class="form-control" #pname> 
+<span class="err" #nameErr></span>
+<br>
+<br>
+<input type="text" class="form-control" #page>
+<span class="err" #ageErr></span>
+<br>
+<br>
+
+<button class="btn btn-danger" (click)="onSubmit()" >
+     Submit</button>
+
+     <button class="btn btn-danger" (click)="clear()" >
+            Clear</button>

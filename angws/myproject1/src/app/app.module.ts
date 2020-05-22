@@ -29,6 +29,8 @@ import { MyDirDirective } from './custom-dir1/my-dir.directive';
 import { ColorDirective } from './custom-dir1/color.directive';
 import { BgColorDirective } from './custom-dir1/bg-color.directive';
 import { HideDirective } from './custom-dir1/hide.directive';
+import { ViewChildDemoComponent } from './view-child-demo/view-child-demo.component';
+import { ViewChildDemo1Component } from './view-child-demo1/view-child-demo1.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { HideDirective } from './custom-dir1/hide.directive';
     MyDirDirective,
     ColorDirective,
     BgColorDirective,
-    HideDirective
+    HideDirective,
+    ViewChildDemoComponent,
+    ViewChildDemo1Component
 
   ],
   imports: [
