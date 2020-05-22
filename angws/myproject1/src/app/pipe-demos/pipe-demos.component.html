@@ -2,10 +2,20 @@
 
 <p>{{message}}</p>
 <p>{{message | slice:8:17}}</p>
+<p>{{message | uppercase}}</p>
+<p>{{message | lowercase}}</p>
+<p>{{message | titlecase}}</p>
+
+
+
 <hr>
+Grouth Rate : {{grothRate }}
+<br>
 Grouth Rate : {{grothRate |percent}}
 <br>
 Grouth Rate : {{grothRate |percent:'2.2-3'}}
+<br>
+Profit : {{profit}}
 <br>
 Profit : {{profit |percent:'2.2-3'}}
 <hr>
@@ -14,7 +24,10 @@ Amount : {{amount}}
 Amount : {{amount | number}}
 <br>
 Amount : {{amount| number:'5.2-2'}}
+<hr> 
+Currency
 <br>
+
 Amount : {{amount| currency}}
 <br>
 Amount : {{amount| currency:'INR'}}
@@ -35,6 +48,7 @@ Amount : {{amount| currency:'Rs.':'symbol':'5.2-3'}}
             <th>City</th>           
             <th>DOB</th>
             <th>Experience</th>
+            <th>Level</th>
             <th>Salary</th>
             <th>Grade</th>  
             <th>Bonus</th>
@@ -45,8 +59,9 @@ Amount : {{amount| currency:'Rs.':'symbol':'5.2-3'}}
         <td>{{e.gender}}</td>
         <td>{{e.name | uppercase |nameTitle :e.gender }}</td>
         <td>{{e.city | uppercase}}</td>       
-        <td>{{e.dob | date:'dd, MMM yyyy'}}</td>
+        <td>{{e.dob | date:'dd/MM/yyyy'}}</td>
         <td>{{e.experience}}</td>
+        <td>{{e.experience | exlevel}}</td>
         <td>{{e.salary | currency:'INR'}}</td>
         <td>{{e.salary | grade}} </td>
         <td>{{e.salary | bonus : e.experience : e.gender |currency:'INR' }}</td>

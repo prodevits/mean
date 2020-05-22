@@ -23,7 +23,7 @@ import { Practice5Component } from './practice5/practice5.component';
 import { SearchPipe } from './practice5/search.pipe';
 import { SortByPipe } from './practice5/sort-by.pipe';
 import { SalaryFilterPipe } from './practice5/salary-filter.pipe';
-
+import {Explevel} from './pipe-demos/explevel.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,9 @@ import { SalaryFilterPipe } from './practice5/salary-filter.pipe';
     Practice5Component,
     SearchPipe,
     SortByPipe,
-    SalaryFilterPipe
+    SalaryFilterPipe,
+    Explevel
+
   ],
   imports: [
     BrowserModule,

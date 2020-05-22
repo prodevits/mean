@@ -3,8 +3,9 @@
 <table>
     <tr>
         <td>Empid:</td>
-        <td>        
-            <input type="text" [(ngModel)]="empid">
+        <td>  
+            <p  [hidden]="!editMode">{{empid}}</p>      
+            <input type="text" [(ngModel)]="empid" [hidden]="editMode">
         </td>
     </tr>
     <tr>
@@ -21,7 +22,8 @@
     </tr>
 </table>
 <br>
-<button (click)="add()"  [hidden]="editMode">Add Employee</button>
+<button (click)="add()" [hidden]="editMode" >Add Employee</button>
+<button (click)="update()" [hidden]="!editMode" >Update</button>
 <hr>
 
 <table border="1" width="600">
@@ -44,6 +46,9 @@
             <span *ngIf='e.salary<15000'> Grade C </span>
             <span *ngIf='e.salary>=15000 && e.salary<25000'> Grade B</span>
             <span *ngIf='e.salary>25000'> Grade A </span>            
+    </td>
+    <td>
+        <button (click)="edit(i)">Edit</button>
     </td>
     <td><button (click)="remove(e.empid)">Remove</button></td>
     <td><button (click)="removeByIndex(i)">Remove</button></td>
