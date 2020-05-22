@@ -31,6 +31,10 @@ import { BgColorDirective } from './custom-dir1/bg-color.directive';
 import { HideDirective } from './custom-dir1/hide.directive';
 import { ViewChildDemoComponent } from './view-child-demo/view-child-demo.component';
 import { ViewChildDemo1Component } from './view-child-demo1/view-child-demo1.component';
+import { ChildComponentDemo1Component } from './child-component-demo1/child-component-demo1.component';
+import { StudentComponent } from './child-component-demo1/student/student.component';
+import { ChildComponentPractice1Component } from './child-component-practice1/child-component-practice1.component';
+import { ItemComponent } from './child-component-practice1/item/item.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,11 @@ import { ViewChildDemo1Component } from './view-child-demo1/view-child-demo1.com
     BgColorDirective,
     HideDirective,
     ViewChildDemoComponent,
-    ViewChildDemo1Component
+    ViewChildDemo1Component,
+    ChildComponentDemo1Component,
+    StudentComponent,
+    ChildComponentPractice1Component,
+    ItemComponent
 
   ],
   imports: [
