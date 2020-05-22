@@ -21,8 +21,7 @@ export class SortByPipe implements PipeTransform {
         } else {
           emps.sort((b,a) => a[fieldName] < b[fieldName] ? -1 : 1);
         }
-      }
-      
+      }      
     }   
     return emps;
   }

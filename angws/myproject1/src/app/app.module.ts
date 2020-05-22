@@ -24,6 +24,12 @@ import { SearchPipe } from './practice5/search.pipe';
 import { SortByPipe } from './practice5/sort-by.pipe';
 import { SalaryFilterPipe } from './practice5/salary-filter.pipe';
 import {Explevel} from './pipe-demos/explevel.pipe';
+import { CustomDir1Component } from './custom-dir1/custom-dir1.component';
+import { MyDirDirective } from './custom-dir1/my-dir.directive';
+import { ColorDirective } from './custom-dir1/color.directive';
+import { BgColorDirective } from './custom-dir1/bg-color.directive';
+import { HideDirective } from './custom-dir1/hide.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +53,12 @@ import {Explevel} from './pipe-demos/explevel.pipe';
     SearchPipe,
     SortByPipe,
     SalaryFilterPipe,
-    Explevel
+    Explevel,
+    CustomDir1Component,
+    MyDirDirective,
+    ColorDirective,
+    BgColorDirective,
+    HideDirective
 
   ],
   imports: [
