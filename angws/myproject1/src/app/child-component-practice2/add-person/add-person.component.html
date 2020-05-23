@@ -1,0 +1,29 @@
+<p>
+    Enter Id:
+
+    <input type="text" [(ngModel)]='id' >
+  </p>
+  <p>
+    Enter Name
+
+    <input type="text" [(ngModel)]='name'>
+  </p>
+  <p>
+    Enter Age
+
+    <input type="text" [(ngModel)]='age'>
+  </p>
+  <p>
+    Enter Salary
+
+    <input type="text" [(ngModel)]='salary'>
+  </p>
+  <p>
+    Enter Dept
+ 
+    <input type="text" [(ngModel)]='dept'>
+  </p>
+  <p>
+    <button (click)='onPersonAdd()' [hidden]='editMode'>Add</button>
+    </p>
+  

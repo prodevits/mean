@@ -1,0 +1,9 @@
+<td>{{person.id}}</td>
+<td>{{person.name | titlecase}}</td>
+<td>{{person.age}}</td>
+<td>{{person.salary | currency:'INR':'symbol':'5.2-2' }}</td>
+<td>{{person.dept}}</td>
+
+<td><button class="btn btn-primary" (click)="remove()">Remove</button>
+</td>
+
