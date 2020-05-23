@@ -1,0 +1,34 @@
+<h1 [ngStyle]="{'text-align':'center'}">ngStyle</h1>
+<hr>
+
+          <h3> value from variable</h3>
+
+          <h1 [ngStyle]="{'background':bgc}">Demo Text</h1>
+
+
+          <button (click)="setBg('red')">Red BG</button>
+          <button (click)="setBg('green')">Red Green</button>
+          <button (click)="setBg('blue')">Red Blue</button>
+  
+      <hr>
+  
+    
+            <h3> value from boolean expression</h3>
+        
+            <h1 [ngStyle]="{'background':gender=='male'?'blue':'red', 'color':'#FFF'}">{{gender}}</h1>
+           
+            <input type="radio" name="g" [(ngModel)]='gender' value="male">MALE
+            <input type="radio" name="g" [(ngModel)]='gender' value="female">FEMALE
+  <hr>
+
+            <h3>value from method call</h3>
+         
+            <h1 [ngStyle]="{'background':getCountryColor()}">{{country}}</h1>
+            <select [(ngModel)]='country' class="form-control">
+              <option>india</option>
+              <option>pak</option>
+              <option>usa</option>
+              <option>japan</option>
+              <option>other</option>
+            </select>
+         
