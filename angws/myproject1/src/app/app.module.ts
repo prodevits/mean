@@ -35,6 +35,10 @@ import { ChildComponentDemo1Component } from './child-component-demo1/child-comp
 import { StudentComponent } from './child-component-demo1/student/student.component';
 import { ChildComponentPractice1Component } from './child-component-practice1/child-component-practice1.component';
 import { ItemComponent } from './child-component-practice1/item/item.component';
+import { StyleDemoComponent } from './style-demo/style-demo.component';
+import { ClassDemoComponent } from './class-demo/class-demo.component';
+import { ChildComponentDemo2Component } from './child-component-demo2/child-component-demo2.component';
+import { MessageComponent } from './child-component-demo2/message/message.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +74,11 @@ import { ItemComponent } from './child-component-practice1/item/item.component';
     ChildComponentDemo1Component,
     StudentComponent,
     ChildComponentPractice1Component,
-    ItemComponent
+    ItemComponent,
+    StyleDemoComponent,
+    ClassDemoComponent,
+    ChildComponentDemo2Component,
+    MessageComponent
 
   ],
   imports: [

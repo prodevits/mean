@@ -1,0 +1,11 @@
+<h2>child-component-demo2</h2>
+
+<hr>
+
+<app-message (newMessage)="onMessage($event)"></app-message>
+
+<hr>
+<h3 *ngIf="msgList.length>0">Messages</h3>
+<ul>
+    <li *ngFor="let m of msgList">{{m}}</li>
+</ul>
