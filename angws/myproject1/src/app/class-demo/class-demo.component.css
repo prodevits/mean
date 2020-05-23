@@ -1,0 +1,30 @@
+h1{
+    padding:10px 5px;
+}
+.box{
+    border:2px solid #ff0;    
+}
+
+.text-center{
+    text-align:center;
+}
+
+.bg-primary{
+    background: #00F;
+}
+
+.bg-info{
+    background:#0FF;
+}
+
+.bg-danger{
+    background:#F00;
+}
+
+.bg-warning{
+    background:coral;
+}
+
+.bg-success{
+    background:darkgreen;
+}
