@@ -15,7 +15,7 @@ export class PipeDemos1Component implements OnInit {
     {empid:104,name:'aman',gender:'male',city:'bhopal',salary:29000,dob:'2001-10-11',experience:0}
   ];
 
-
+fn='empid';
   constructor() { }
   ngOnInit() {
   }

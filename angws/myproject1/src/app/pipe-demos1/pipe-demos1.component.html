@@ -4,6 +4,14 @@
 Name: <input type="text" [(ngModel)]="sn">
 <br>
 <br>
+Order By
+
+<input type="radio" [(ngModel)]="fn" value="empid"> Empid
+
+<input type="radio" [(ngModel)]="fn" value="name"> Name
+<br>
+<br>
+
 <table border="1" width="1000">
     <tr>
         <th>#</th>
@@ -17,7 +25,7 @@ Name: <input type="text" [(ngModel)]="sn">
         <th>Grade</th>  
         <th>Bonus</th>
     </tr>
-<tr *ngFor="let e of emps | nameFilter: sn | sort, let i=index">
+<tr *ngFor="let e of emps | nameFilter: sn  | sort: fn , let i=index">
     <td>{{i+1}}</td>
     <td>{{e.empid}}</td>
     <td>{{e.gender}}</td>
@@ -31,4 +39,3 @@ Name: <input type="text" [(ngModel)]="sn">
 </tr>
 </table>
 
-<h3>Max Salary Employee ={{emps | max | json}}</h3>
