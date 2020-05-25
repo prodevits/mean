@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
   
-  @Input('stu') stu:{rollno:number,name:string};
+  @Input() stu:{rollno:number,name:string};
   
  
   constructor() { }

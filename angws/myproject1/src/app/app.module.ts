@@ -26,8 +26,6 @@ import { SalaryFilterPipe } from './practice5/salary-filter.pipe';
 import {Explevel} from './pipe-demos/explevel.pipe';
 import { CustomDir1Component } from './custom-dir1/custom-dir1.component';
 import { MyDirDirective } from './custom-dir1/my-dir.directive';
-import { ColorDirective } from './custom-dir1/color.directive';
-import { BgColorDirective } from './custom-dir1/bg-color.directive';
 import { HideDirective } from './custom-dir1/hide.directive';
 import { ViewChildDemoComponent } from './view-child-demo/view-child-demo.component';
 import { ViewChildDemo1Component } from './view-child-demo1/view-child-demo1.component';
@@ -42,6 +40,7 @@ import { MessageComponent } from './child-component-demo2/message/message.compon
 import { ChildComponentPractice2Component } from './child-component-practice2/child-component-practice2.component';
 import { AddPersonComponent } from './child-component-practice2/add-person/add-person.component';
 import { ShowPersonComponent } from './child-component-practice2/show-person/show-person.component';
+import { TimerDirective } from './custom-dir1/timer.directive';
 
 @NgModule({
   declarations: [
@@ -69,8 +68,6 @@ import { ShowPersonComponent } from './child-component-practice2/show-person/sho
     Explevel,
     CustomDir1Component,
     MyDirDirective,
-    ColorDirective,
-    BgColorDirective,
     HideDirective,
     ViewChildDemoComponent,
     ViewChildDemo1Component,
@@ -84,7 +81,8 @@ import { ShowPersonComponent } from './child-component-practice2/show-person/sho
     MessageComponent,
     ChildComponentPractice2Component,
     AddPersonComponent,
-    ShowPersonComponent
+    ShowPersonComponent,
+    TimerDirective
 
   ],
   imports: [
