@@ -1,0 +1,12 @@
+<h2>Service Demo1</h2>
+<h3>New Product Entry</h3>
+<app-add-product></app-add-product>
+
+<br>
+<br>
+<hr>
+<br>
+<h3>Product List </h3>
+<table border="1" width="300">
+    <tr class="app-show-product" *ngFor="let p of products()" [product]="p"></tr>
+</table>
