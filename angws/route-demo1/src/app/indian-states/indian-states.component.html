@@ -1,0 +1,10 @@
+<h2>indian-states</h2>
+
+<br>
+<table>
+    <tr *ngFor="let st of states">
+        <td>{{st.name}}</td>
+        <td><a href="#" [routerLink]="['/capital',st.code]">Show Capital</a></td>
+    </tr>
+</table>
+
