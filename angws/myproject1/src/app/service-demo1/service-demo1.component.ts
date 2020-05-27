@@ -8,13 +8,19 @@ import { ProductService } from '../services/product-service';
   providers:[ProductService]
 })
 export class ServiceDemo1Component implements OnInit {
+  products:{name:string,price:number}[];
 
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
+  this.products=this.productService.getProducts();
+
+  this.productService.onProductChange.subscribe((data)=>{
+   // console.log("data publish by service");    
+    this.products=data;
+  });
+  
   }
 
-  products(){
-return this.productService.getProducts();
-  }
+  
 }

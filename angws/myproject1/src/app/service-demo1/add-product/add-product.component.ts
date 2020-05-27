@@ -15,7 +15,6 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
   }
 
-
   add(){
     const p={name:this.name,price:this.price};
     console.log(p);    
