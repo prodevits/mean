@@ -1,0 +1,12 @@
+<td>{{person.id}}</td>
+<td>{{person.name | titlecase}}</td>
+<td>{{person.age}}</td>
+<td>{{person.salary | currency:'INR':'symbol':'5.2-2' }}</td>
+
+<td>{{person.dept}}</td>
+<td><a routerLink="/personDetails" [queryParams]="{id:person.id}">More Details</a></td>
+
+<td [hidden]='editMode'>   <button class="btn btn-primary" [hidden]='editMode' (click)="remove(person.id)">Remove</button>
+</td>
+<td [hidden]='editMode' >  <button class="btn btn-primary"  (click)="edit(person.id)">Edit</button>
+</td>

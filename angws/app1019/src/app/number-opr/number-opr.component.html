@@ -1,0 +1,31 @@
+<p>
+ No1  <input type="number" #no1>
+
+</p>
+<p>
+ No2  <input type="number" #no2>
+ 
+</p>
+<p>
+  <input type="radio" name="opr" value="add" [(ngModel)]='opr'>Add
+  <input type="radio" name="opr" value="sub" [(ngModel)]='opr'> Sub
+
+</p>
+<p>
+<select name="" [(ngModel)]='selOprs' size="4" multiple='true'>
+  <option  *ngFor='let op of oprs' value="{{op}}">{{op}}</option>
+</select>
+
+{{selOprs}}
+</p>
+<p>{{opr}}</p>
+<p>
+   Output {{output}}
+    
+   </p>
+   <p><input type="checkbox" [checked]='dd'>
+  {{dd}}
+  </p>
+   <p>
+     <button (click)="add(no1.value,no2.value)">Add</button>
+   </p>

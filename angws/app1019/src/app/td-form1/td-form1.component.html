@@ -1,0 +1,38 @@
+<div class="row">
+
+  <div class="col-sm-6">
+    <form #stuForm="ngForm" (submit)='onSubmit()'>
+      <input type="radio" name="gender" value="male" ngModel> Male
+      <input type="radio" name="gender" value="female" ngModel> Female
+   <br>
+      <input type="text" name="fname" ngModel>    
+      <input type="text" name="lname" ngModel>
+      <br>
+      <input type="text" name="email" ngModel>
+      <br>
+      <select name="country" ngModel>
+        <option>India</option>
+        <option>UK</option>
+        <option>USA</option>        
+      </select>
+      <br>
+   
+      <select name="educations" multiple ngModel>
+        <option>MTech </option>
+        <option>MCA </option>
+        <option>ME </option>
+        <option>MSc </option>        
+        <option>BTech </option>
+        <option>BCA </option>
+        <option>BE </option>
+        <option>BSc </option>
+   
+        
+
+      </select>
+      <br>
+      <input type="checkbox" name="nri" ngModel> Is NRI
+      <button>Submit</button>
+    </form>
+    </div>
+    </div>

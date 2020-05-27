@@ -1,0 +1,161 @@
+<div class="row">
+
+  <div class="col-sm-6">
+    <form (ngSubmit)="onSubmit()" [match]="['password','cpassword']" class="form-horizontal" #frm="ngForm">
+      <div class="alert alert-warning" *ngIf="frm.errors">Error</div>
+      <input type="hidden" name="id" #id ngModel> 
+      <div class="alert alert-danger" *ngIf="!frm.valid && frm.touched">Enter valid Data in input fields
+        <hr>
+        {{frm.errors}}
+      </div>
+       
+      <div class="form-group">
+        <label for="" class="control-label col-sm-3">Gender</label>
+        <div class="col-sm-9">
+          <label for="" class="radio-inline">
+            <input type="radio" name="gender" value='male' ngModel> Male
+          </label>
+          <label for="" class="radio-inline">
+            <input type="radio" class="radio-inline" name="gender" value='female' ngModel>Female
+          </label>
+        </div>
+      </div>
+      <div class="form-group" >
+        <label for="" class="control-label col-sm-3">Full Name</label>
+       
+          <div ngModelGroup="fullName">
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name='fname' #fname='ngModel' ngModel>
+              </div>
+              <div class="col-sm-5">
+                  <input type="text" class="form-control" name='lname' #lname='ngModel' ngModel>
+                </div>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error' : uname.invalid}">
+        <label for="" class="control-label col-sm-3">User Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" 
+          name="uname"   #uname='ngModel' validate-uname
+          minlength="5" required ngModel>
+          <div *ngIf="uname.invalid && uname.touched">
+            <div class="alert alert-danger" *ngIf="uname.errors.required">Name Required</div>
+            <div class="alert alert-danger" *ngIf="uname.errors.minlength">Enter Minimum 5 chars</div>
+            {{uname.errors | json}}
+        </div>
+          
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="" class="control-label col-sm-3">Email</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" name="email" 
+            email #email='ngModel' ngModel>
+            <div class="alert alert-danger" *ngIf="!email.valid && email.touched">Enter a valid Email
+              <br>
+              {{email.errors | json}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-3">Salary</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" name="salary"  range="['10000','20000']"
+              #salary='ngModel' ngModel>
+              <div class="alert alert-danger" *ngIf="!salary.valid && salary.touched">Enter a valid Salary
+                <br>
+                {{salary.errors | json}}
+              </div>
+            </div>
+          </div>
+      <div class="form-group">
+        <label for="" class="control-label col-sm-3">Qualifications</label>
+        <div class="col-sm-9">
+          <select class="form-control" name="quals" id="" size="4" multiple ngModel>
+            <option>MCA</option>
+            <option>BCA</option>
+            <option>M.Tech.</option>
+            <option>B.Tech</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="" class="control-label col-sm-3">Is Nri</label>
+          <div class="col-sm-9">
+            <label for="" class="checkbox-inline">
+              <input type="checkbox" name="nri"  ngModel> 
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" name="password" 
+             #password='ngModel'  ngModel>
+           </div>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">Confirm Password</label>
+          <div class="col-sm-9">
+            <input type="password"  confirmPassValidator="password" class="form-control" name="cpassword" 
+             #cpassword='ngModel' ngModel>
+             <div class="alert alert-danger" *ngIf="!cpassword.valid && cpassword.touched">Passord and Confirm PAssword not matched!
+                 <br>
+{{cpassword.errors | json}}
+
+             </div>
+             <div class="alert alert-danger" *ngIf="frm.invalid && cpassword.touched && frm.errors && frm.errors.match">
+               Passord and Confirm PAssword not matched!
+           </div>
+        
+           </div>
+        </div>
+    <div class="form-group">
+      <label for="" class="control-label col-sm-3">Age</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="age" [range]="[20,50]"  #age="ngModel" ngModel>
+      </div>
+    </div>
+
+      <div>
+        <div class="col-sm-3"></div>
+        <div class="offset-sm-3 col-sm-3">
+          <button [disabled]='!frm.valid' class="btn btn-success">
+            Submit
+          </button></div>
+      </div>
+      <hr>
+      <table class="table table-bordered">
+        <tr>
+          <td>valid</td><td>{{frm.valid}}</td></tr>
+          <tr>
+          <td>invalid</td><td>{{frm.invalid}}</td></tr>
+          <tr>
+          <td>pristine</td><td>{{frm.pristine}}</td></tr>
+          <tr>
+          <td>dirty</td><td>{{frm.dirty}}</td></tr>
+          <tr>
+          <td>touched</td><td>{{frm.touched}}</td></tr>
+          <tr>
+          <td>submitted</td><td>{{frm.submitted}}</td></tr>
+          <tr>
+          <td>value</td><td>{{frm.value | json}}</td>
+
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="col-sm-6">
+      <table class="table table-bordered">
+        <tr *ngFor="let u of users">
+          <td>{{u.id}}</td>
+          <td>{{u.uname}}</td>
+          <td>{{u.email}}</td>
+          <td><button (click)='edit(u.id)'>Edit</button></td>
+        </tr>
+      </table>
+    </div>
+</div>

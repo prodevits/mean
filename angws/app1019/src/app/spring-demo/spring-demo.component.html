@@ -1,0 +1,29 @@
+<div class="row">
+  <h3>Products</h3>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <input type="text" placeholder="ID" [(ngModel)]="id">
+    <br>
+    <input type="text" placeholder="Name" [(ngModel)]="name">
+    <br>
+    <input type="text" placeholder="Cost Price" [(ngModel)]="cprice">
+    <br>
+    <input type="text" placeholder="Qty" [(ngModel)]="qty">
+    <br>
+    <input type="text" placeholder="Sales Price" [(ngModel)]="sprice">
+    <br>
+    <br>
+    <button (click)='add()'>Add</button>
+  </div>
+  <div class="col-sm-6">
+    <table class="table table-bordered" *ngIf="products">
+      <tr *ngFor="let p of products">
+        <td>{{p.productId}}</td>
+        <td>{{p.name}}</td>
+        <td><button (click)='delete(p.productId)'>Delete</button></td>
+      </tr>
+    </table>
+    
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row">
+  <h1 [ngClass]="{'text-center':tc, 'out-border':fs}"  [ngStyle]="{'color':fg, 'background':bg, 'font-size':fss}">Welcome </h1>
+<div class="col-sm-6">
+  <h4>Backgroung</h4>
+<input type="radio" name='r1' [(ngModel)]="bg" value='red'> red
+<input type="radio" name='r1'  [(ngModel)]="bg" value='green'> green
+<input type="radio"name='r1'  [(ngModel)]="bg" value='blue'> blue
+<h4>Forground</h4>
+<input type="radio" name='r2'  [(ngModel)]="fg" value='red'> red
+<input type="radio" name='r2' [(ngModel)]="fg" value='green'> green
+<input type="radio" name='r2' [(ngModel)]="fg" value='blue'> blue
+<h4>Font</h4>
+<select name="" [(ngModel)]='fss'>
+  <option *ngFor='let s of fsA'>{{s}}</option>
+</select>
+</div>  
+<div class="col-sm-6">
+  Apply Class :  Text Center
+  <input type="checkbox" [(ngModel)]='tc'> <br>
+  Apply Class :  Out Border
+  <input type="checkbox" [(ngModel)]='fs'> <br>
+</div>
+</div>
+<hr>
+<div class="row">
+  <h1 [ngStyle]="{'background':bgc}">Demo Text</h1>
+  <button (click)="setBg('red')">Red BG</button>
+  <button (click)="setBg('green')">Red Green</button>
+  <button (click)="setBg('blue')">Red Blue</button>
+</div>
+
+<div class="row">
+  <h1 [ngStyle]="{'background':country=='india'?'blue':'red'}">Demo Text</h1>
+  <button (click)="setCountry('india')">India</button>
+  <button (click)="setCountry('usa')">USA</button>
+  
+</div>
+
+<div class="row">
+  <h1 [ngStyle]="{'background':getCountryColor()}">Demo Text</h1>
+   <select [(ngModel)]='country'>
+     <option>india</option>
+     <option>pak</option>
+     <option>usa</option>
+     <option>japan</option>
+     <option>other</option>
+   </select> 
+
+</div>

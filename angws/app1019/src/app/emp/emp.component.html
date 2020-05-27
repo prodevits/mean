@@ -1,0 +1,53 @@
+<h1 mousefn>Employee Management</h1>
+<h2 hide='5000'>Hi, Welcome in My Application</h2>
+<p>
+   <select name="" id="" (change)="load_cities($event)">
+       <option *ngFor="let st of states" value="{{st.code}}" >{{st.name}}</option>
+   </select>
+<select name="" id="">
+    <option *ngFor="let ct of cityNames">{{ct}}</option>
+</select>
+</p>
+<h3   [class]='text_color_class' [class.nri-txt]='nri'>Welcome {{name | uppercase}}</h3>
+<input type="radio" name="tc" [(ngModel)]="text_color_class" value="txt-red">Red 
+<input type="radio" name="tc" [(ngModel)]="text_color_class" value="txt-green" >
+<p>{{message()}}</p>
+<p>NRI={{nri}}</p>
+<hr>
+Two Way Bind :
+<br>
+<input type="text" [(ngModel)]='name'>
+<br>IS NRI
+<input type="checkbox" [(ngModel)]="nri">
+<h3 *ngIf="nri">HI NRI, Welcome in India</h3>
+<button [disabled]='!nri' >Click</button>
+
+<hr><h3>style binding</h3>
+<p [style.color]="nri?'#0FF':'#F0F'" >Based on Nri Selection</p>
+<p [style.color]='text_color'>Direct class property</p>
+<p [ngStyle]='myStyle'>
+My Style using NgStyle
+</p>
+<hr>
+Cities: {{cities}}
+<hr>
+<p>
+    <input type="text" #nm>
+    <button (click)="doTask(nm)">ok</button>
+</p>
+
+<hr>
+Property Binding
+<input type="text" [value]="name">
+<br>
+
+IS NRI <input type="checkbox" [checked]="nri">
+<hr>
+
+<ul>
+    <li *ngFor="let e of cities">{{e}}
+        <span *ngIf="e.length>4">: Long City</span>
+    </li>
+</ul>
+
+<img src="assets/imgs/crm.png" alt="">

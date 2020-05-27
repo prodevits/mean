@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-sm  bg-dark navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Welcome {{title}}</a>
+    </div>
+    <ul class="navbar-nav">
+      <!-- <li routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>
+      <a  routerLink="/">Home</a></li> -->
+      <li class="nav-item" routerLinkActive='active'>
+        <a class="nav-link" routerLink="home">Home</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="empHttp">Http</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="person">Person</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="obs">Observable</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="numOpr">Number</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="lsdemo">Local Service</a></li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pipe </a>
+        <div class="dropdown-menu" routerLinkActive='active'>
+          <a class="dropdown-item" routerLinkActive='active' routerLink="pipeDemo">Pipe1</a>
+          <a class="dropdown-item" routerLinkActive='active' routerLink="pipeDemos">Pipe2</a>
+        </div>
+      </li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="student">Student</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="products">Product</a></li>
+      <li class="nav-item" routerLinkActive='active'><a class="nav-link" routerLink="lcDemo">Life Cycle</a></li>
+      <li class="nav-item dropdown" routerLinkActive='active'>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Router</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLinkActive='active' routerLink="routeDemo">Routing</a>
+          <a class="dropdown-item" routerLinkActive='active' [routerLink]="[{outlets:{o1:['demo']}}]">Auxilary Routing</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Style & class <span
+            class="caret"></span></a>
+        <div class="dropdown-menu" routerLinkActive='active'>
+          <a class="dropdown-item" routerLinkActive='active' routerLink='styled'>Style Demo</a>
+          <a class="dropdown-item" routerLinkActive='active' routerLink='styleClass'>Style Demo</a>
+          <a class="dropdown-item" routerLinkActive='active' routerLink='ngclassd'>Class Demo</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive='active'>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Form <span class="caret"></span></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLinkActive='active' routerLink="tdfDemo1">TD Form1</a>
+          <a class="dropdown-item" routerLinkActive='active' routerLink="tdfDemo">TD Form Validation</a>        
+          <a class="dropdown-item" routerLinkActive='active' routerLink='reactiveForm'>Reactive</a>         
+          <a class="dropdown-item" routerLinkActive='active' routerLink='fbReactiveForm'>FBReactive</a> 
+        </div>
+      </li>
+
+      <li class="dropdown" routerLinkActive='active'>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Service
+          <span class="caret"></span></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLinkActive='active' routerLink="basicService">Basic</a>
+          <a class="dropdown-item" routerLinkActive='active' routerLink="serviceDemo">Service</a>
+          <a class="dropdown-item" routerLinkActive='active' routerLink='service1'>Service1</a> 
+          <a class="dropdown-item" routerLinkActive='active' routerLink='service2'>Service2</a> 
+          <a class="dropdown-item" routerLinkActive='active' routerLink='service3'>Service3</a> 
+        </div>
+      </li>
+      <li class="dropdown" routerLinkActive='active'>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Directives
+          <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink='attrDir'>Attribute Directive</a>
+          <a class="dropdown-item" routerLink='strDir'>Structral Directive</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <router-outlet></router-outlet>
+  <div>

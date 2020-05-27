@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-6">
+<app-add-emp (add)="onAdd()"></app-add-emp>
+  </div>
+  <div class="col-sm-6">
+    
+ <table class="table table-bordered">
+  <tr *ngFor="let e of empList">
+    <td>{{e.empid}}</td><td>{{e.name}}</td>
+  </tr>
+</table>
+  </div>
+</div>
+

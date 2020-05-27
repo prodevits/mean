@@ -1,0 +1,25 @@
+<td>{{person.id}}</td>
+<td>{{person.name | titlecase}}</td>
+<td>{{person.age}}</td>
+<td>{{person.salary | currency:'INR':'symbol':'5.2-2' }}</td>
+<td><p *ngIf='person.salary<15000 else ga'>
+  Grade B ( less then {{ 15000 | number:'5.2-2'}})
+</p>
+<ng-template #ga>
+  <p *ngIf="person.salary<45000 else gx">Grade A</p>
+</ng-template>
+<ng-template #gx>Grade X</ng-template>
+</td>
+<td>{{person.dept}}</td>
+<td><span [ngSwitch]='person.dept'>
+  <span *ngSwitchCase="'HR'">*****</span>
+  <span *ngSwitchCase="'SALES'">***</span>
+  <span *ngSwitchCase="'ACCOUNT'">**</span>
+  <span *ngSwitchDefault>*</span>
+
+</span>
+</td>
+<td>   <button class="btn btn-primary" [hidden]='editMode' (click)="remove()">Remove</button>
+</td>
+<td>   <button class="btn btn-primary" [hidden]='editMode' (click)="edit()">Edit</button>
+</td>

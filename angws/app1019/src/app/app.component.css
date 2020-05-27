@@ -1,0 +1,11 @@
+h1{
+    color:#0F0;
+}
+
+p{
+    color:#F00;
+}
+
+.navbar-default .navbar-nav>.active>a{
+    background: #F00;
+}

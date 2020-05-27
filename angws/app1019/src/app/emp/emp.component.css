@@ -1,0 +1,23 @@
+h1{
+    color:rgb(13, 87, 121);
+}
+
+/* h3{
+    color:rgb(136, 39, 92);
+}
+p{
+    background: #FF0;
+} */
+.txt-red{
+    color:#F00;
+}
+
+.txt-green{
+    color:#0F0;
+}
+
+.nri-txt{
+  
+    background: #00F;
+    font-style: italic;
+}

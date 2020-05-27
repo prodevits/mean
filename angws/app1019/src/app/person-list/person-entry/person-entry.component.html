@@ -1,0 +1,35 @@
+<p>
+  Enter Id:
+</p>
+<p>
+  <input type="text" [(ngModel)]='id' [disabled]='editMode'>
+</p>
+<p>
+  Enter Name
+</p>
+<p>
+  <input type="text" [(ngModel)]='name'>
+</p>
+<p>
+  Enter Age
+</p>
+<p>
+  <input type="text" [(ngModel)]='age'>
+</p>
+<p>
+  Enter Salary
+</p>
+<p>
+  <input type="text" [(ngModel)]='salary'>
+</p>
+<p>
+  Enter Dept
+</p>
+<p>
+  <input type="text" [(ngModel)]='dept'>
+</p>
+<p>
+  <button (click)='onPersonAdd()' [hidden]='editMode'>Add</button>
+  <button (click)='onPersonUpdate()' [hidden]='!editMode' >Update</button>
+  <button (click)='onCancelUpdate()' [hidden]='!editMode' >Cancel</button>
+</p>

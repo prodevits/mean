@@ -1,0 +1,18 @@
+
+<div class="alert alert-danger" *ngIf="errorMessage" >{{errorMessage}}</div>
+    
+    
+    <input type="text" [(ngModel)]="emp.empid" placeholder="Empid">
+    <br>
+    <input type="text" [(ngModel)]="emp.name" placeholder="Name">
+    <br>
+  
+    <input type="text" [(ngModel)]="emp.city" placeholder="City">
+    <br>
+  
+    <input type="text" [(ngModel)]="emp.salary" placeholder="Salary">
+    <br>
+  
+    <button (click)="addEmp()">Add</button>
+
+

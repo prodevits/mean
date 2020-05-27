@@ -1,0 +1,32 @@
+<div class="col-sm-4">
+<app-person-entry (personUpdated)='updatePerson($event)' (personAdded)='addPerson($event)' (updateCancelled)='onCancelUpdate()' [person]='personEditable'  ></app-person-entry>
+</div>
+<div class="col-sm-8" style="height: 400px; overflow-y: scroll;">   
+    <div *ngIf='persons else notFound'>
+        <div class="row">
+           <input type="text" [(ngModel)]='searchData' placeholder="Search Name">
+            <br><br>
+            <input type="text" placeholder="salary from" [(ngModel)]='sal1'>
+            <input type="text" placeholder="salary to" [(ngModel)]='sal2'>
+            <br>
+            <br>
+            <div style="float: left; margin-right:20px;">Sort By:</div>
+            <div *ngFor="let pn of pnames" style="float: left; margin-right:10px;">
+                <input type="radio" name="pn" [(ngModel)]="pname" value="{{pn}}"> {{pn|uppercase}} 
+            </div>
+             
+            <div style="float: left; margin-right:10px; padding:0 20px" class="bg-danger">
+                <input type="radio" name='order' [(ngModel)]='order' value='A'> ASC
+                <input type="radio" name='order' [(ngModel)]='order' value='D'> DESC
+            </div>
+        </div>
+        <div class="row">
+        <table class="table table-bordered">
+            <tr class='app-person-info' *ngFor="let p of persons |  namefilter: searchData | salaryFilter : sal1 : sal2 | orderBy : pname : order, let c=index"   [person]='p' (onPersonRemove)='removePerson($event)' (onPersonEdit)='editPerson($event)'  [editMode]='editMode'></tr>
+        </table>
+        </div>
+    <div ></div>
+</div>
+    <ng-template #notFound>Person Not Available</ng-template>
+</div>
+

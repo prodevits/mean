@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-sm-6">
+    <form class="form-horizontal" [formGroup]='regForm' (ngSubmit)='onSubmit()' > 
+
+      <div class="form-group">
+        <label for="" class="control-label col-sm-3">User Name</label>
+        <div class="col-sm-9">
+          <input type="text"  formControlName='uname' class="form-control" >
+          <div class="alert alert-danger" *ngIf="regForm.get('uname').touched && regForm.get('uname').errors">
+            {{regForm.get('uname').errors|json}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="" class="control-label col-sm-3">Email</label>
+          <div class="col-sm-9">
+            <input type="email"   formControlName='email' class="form-control" >   
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label col-sm-3">Password</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" formControlName="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label col-sm-3">Confirm Password</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" formControlName="cpassword">
+            <span class="help-block" *ngIf="(regForm.get('cpassword').touched || regForm.get('password').touched ) && regForm.errors && regForm.errors.match">
+  
+              <div class="alert alert-danger" >
+               Password and confirm PAssword Not Matched
+              </div>
+             
+            </span>
+          </div>
+        </div>
+        <div formGroupName="educations{{i}}" *ngFor="let i of edu">
+          <div class="form-group">
+              <label for="" class="control-label col-sm-3">Educations</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" formControlName='title' placeholder="Title">
+              </div>   
+              <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName='passYear' placeholder="Year">
+                </div>  
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName='result' placeholder="Result">
+                  </div>   
+            </div>
+        </div>
+      <div>
+        <div class="col-sm-3">
+<button (click)='addEdu()'>More Education</button>
+
+        </div>
+        <div class="offset-sm-3 col-sm-3">
+          <button  class="btn btn-success" >
+            Submit
+          </button></div>
+      </div>
+    </form>
+  </div>
+</div>

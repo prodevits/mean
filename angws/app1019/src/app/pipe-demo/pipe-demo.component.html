@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table table-bordered">
+      <tr *ngFor="let person of persons | sortBy">
+        <td>{{person.id}}</td>
+        <td>{{person.name | titleName:person.gender | titlecase}}</td>
+        <td>{{person.gender}}</td>
+
+<td>{{person.age}}</td>
+<td>{{person.salary | currency:'INR':'symbol':'5.2-2' }}</td>
+<td>{{person.salary | grade}}</td>
+<td>{{person.dept}}</td>
+</tr>
+</table>
+</div>
+</div>

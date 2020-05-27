@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="alert alert-warning">
+    <div class="h1 text-center">ngStyle</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3> value from variable</h3>
+      </div>
+      <div class="panel-body">
+        <h1 [ngStyle]="{'background':bgc}">Demo Text</h1>
+        <button (click)="setBg('red')">Red BG</button>
+        <button (click)="setBg('green')">Red Green</button>
+        <button (click)="setBg('blue')">Red Blue</button>
+
+      </div>
+
+    </div>
+</div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3> value from boolean expression</h3>
+        </div>
+        <div class="panel-body">
+          <h1 [ngStyle]="{'background':gender=='male'?'blue':'red', 'color':'#FFF'}">{{gender}}</h1>
+          <input type="radio" name="g" [(ngModel)]='gender' value="male">MALE
+          <input type="radio" name="g" [(ngModel)]='gender' value="female">FEMALE
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3>value from method call</h3>
+        </div>
+        <div class="panel-body">
+          <h1 [ngStyle]="{'background':getCountryColor()}">{{country}}</h1>
+          <select [(ngModel)]='country' class="form-control">
+            <option>india</option>
+            <option>pak</option>
+            <option>usa</option>
+            <option>japan</option>
+            <option>other</option>
+          </select>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+

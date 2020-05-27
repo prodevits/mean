@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table table-bordered">
+      <tr *ngFor="let p of persons" class="app-show-person" [person]="p">
+      </tr>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <app-add-person></app-add-person>
+    
+  </div>
+</div>

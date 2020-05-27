@@ -1,0 +1,14 @@
+<td>
+  {{item.itemno}}
+</td>
+<td>
+  {{item.name}}
+</td><td>
+  {{item.price}}
+</td><td>
+  {{item.qty}}
+</td>
+<td class="text-right">{{item.amount | number:'.2-2'}}</td>
+<td>
+  <button class="btn btn-danger" (click)="remove()"><span class="glyphicon glyphicon-remove"></span></button>
+</td>

@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table table-bordered">
+      <tr *ngFor="let person of persons | orderBy:sdata">
+        <td>{{person.id}}</td>
+<td>{{person.name | titlecase}}</td>
+<td>{{person.age}}</td>
+<td>{{person.salary | currency:'INR':'symbol':'5.2-2' }}</td>
+<td>{{person.dept}}</td>
+
+
+<td>   <button class="btn btn-primary" [hidden]='editMode' (click)="remove()">Remove</button>
+</td>
+<td>   <button class="btn btn-primary" [hidden]='editMode' (click)="edit()">Edit</button>
+</td>
+
+      </tr>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <p>
+      Enter Id:
+    </p>
+    <p>
+      <input type="text" [(ngModel)]='p.id' [disabled]='editMode'>
+    </p>
+    <p>
+      Enter Name
+    </p>
+    <p>
+      <input type="text" [(ngModel)]='p.name'>
+    </p>
+    <p>
+      Enter Age
+    </p>
+    <p>
+      <input type="text" [(ngModel)]='p.age'>
+    </p>
+    <p>
+      Enter Salary
+    </p>
+    <p>
+      <input type="text" [(ngModel)]='p.salary'>
+    </p>
+    <p>
+      Enter Dept
+    </p>
+    <p>
+      <input type="text" [(ngModel)]='p.dept'>
+    </p>
+    <p>
+      <button (click)='add()' [hidden]='editMode'>Add</button>
+      <button (click)='onPersonUpdate()' [hidden]='!editMode' >Update</button>
+      <button (click)='onCancelUpdate()' [hidden]='!editMode' >Cancel</button>
+    </p>
+    
+  </div>
+</div>
