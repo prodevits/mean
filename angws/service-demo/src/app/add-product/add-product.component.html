@@ -1,0 +1,41 @@
+<h3>New Product Entry</h3>
+
+<table>
+    <tr>
+        <td>
+            Id: 
+        </td>
+        <td>
+            <span *ngIf="editMode">{{id}}</span>
+            <input  type="text" placeholder="Product Id" [(ngModel)]="id" [hidden]="editMode" >
+            <span class="error">{{idError}}</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Name:
+        </td>
+        <td>
+            <input type="text" placeholder="Product Name" [(ngModel)]="name">
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Price:
+        </td>
+        <td>
+            <input type="text" placeholder="Price" [(ngModel)]="price">
+
+        </td>
+    </tr>
+</table>
+
+<br>
+
+
+<button (click)="add()" [hidden]="editMode" >Add Product</button>
+<button (click)="update()" [hidden]="!editMode">Update Product</button>
+<button (click)="cancel()" [hidden]="!editMode">Cancel</button>

@@ -12,9 +12,7 @@ getProducts(){
 
 addProduct(product:{name:string,price:number}){
     this.productsList.push(product);
-    this.onProductChange.emit(this.productsList);
-   //  console.log(this.productsList);
-    
+    this.onProductChange.emit(this.productsList);    
 }
 removeProduct(index:number){
     this.productsList.splice(index,1);

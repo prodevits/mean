@@ -9,12 +9,10 @@ import { ProductService } from 'src/app/services/product-service';
 export class AddProductComponent implements OnInit {
   name:string;
   price:number;
-
   constructor(private productService:ProductService) { }
-
   ngOnInit() {
   }
-
+  
   add(){
     const p={name:this.name,price:this.price};
     console.log(p);    
