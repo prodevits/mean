@@ -1,0 +1,37 @@
+
+<h3>New State Entry</h3>
+
+<table>
+    <tr>
+        <td>
+            Code: 
+        </td>
+        <td>
+              <input  type="text" [(ngModel)]="code" >
+      
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Name:
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="name">
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Capital
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="capital">
+
+        </td>
+    </tr>
+</table>
+<br>
+
+<button (click)="add()" >Add </button>
