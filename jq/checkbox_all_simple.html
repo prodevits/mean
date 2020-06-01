@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Document</title>
+      <script src="js/jquery.js"></script>
+</head>
+<body>
+  
+<h1>Welcome</h1>
+
+<input type="checkbox" id="chkAll"> All
+<hr>
+<input type="checkbox" class="chk"> A
+<br>
+<input type="checkbox" class="chk"> B
+<br>
+<input type="checkbox" class="chk"> C
+</body>
+</html>
+
+<script>
+$(document).ready(function(){ 
+    var check=0;
+    $("#chkAll").click(function(){
+        var v=$(this).prop('checked');
+        $(".chk").prop('checked',v); 
+        if(v)
+            check=3;
+        else
+            check=0;
+    });
+    $(".chk").click(function(){
+        var v=$(this).prop('checked');
+        if(v){
+            check=check+1;
+        }else{
+            check=check-1;
+        }
+
+        if(check==3){
+            $("#chkAll").prop('checked',true);
+        }else{
+            $("#chkAll").prop('checked',false);
+        }
+    });
+
+});
+
+</script>
