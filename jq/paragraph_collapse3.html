@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Document</title>
+      <script src="js/jquery.js"></script>
+      <style>
+      .about{
+          height:200px;
+          background: #ccc;
+          border: 2px solid #000;
+      }
+      .phead{
+          background: #FF0;
+          border: 2px solid rgb(255, 166, 0);
+          font-size: 30px;
+          font-weight: bold;
+          padding: 10px;
+          margin-bottom: 0;
+          cursor: pointer;
+      }
+      </style>
+</head>
+<body>
+ <p class="phead" id="pindia">
+     INDIA</p>
+<div class="about"  id="india-about">
+    About India
+</div>
+
+<p class="phead" id="pusa">
+        USA</p>
+   <div class="about"  id="usa-about">
+       About USA
+   </div>
+
+   <p class="phead" id="pjapan">
+        JAPAN</p>
+   <div class="about"  id="japan-about">
+       About Japan
+   </div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){ 
+    $(".about").hide();
+    var openDiv="NO";
+
+    $("#pindia").click(function(){
+        $(".about").slideUp();
+
+        if(openDiv!="#india-about"){
+            $("#india-about").slideDown();
+            openDiv="#india-about";
+        }     
+       
+    });
+
+    $("#pusa").click(function(){
+        $(".about").slideUp();
+        if(openDiv!="#usa-about"){
+            $(openDiv).slideUp();
+            $("#usa-about").slideDown();
+            openDiv="#usa-about";
+        }
+    });
+
+    $("#pjapan").click(function(){
+        $(".about").slideUp();
+        if(openDiv!="#japan-about"){
+            $(openDiv).slideUp();
+            $("#japan-about").slideDown();
+            openDiv="#japan-about";
+        }
+    });
+});
+
+</script>

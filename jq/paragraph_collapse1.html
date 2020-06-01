@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Document</title>
+      <script src="js/jquery.js"></script>
+      <style>
+      .about{
+          height:200px;
+          background: #ccc;
+          border: 2px solid #000;
+      }
+      .phead{
+          background: #FF0;
+          border: 2px solid rgb(255, 166, 0);
+          font-size: 30px;
+          font-weight: bold;
+          padding: 10px;
+          margin-bottom: 0;
+          cursor: pointer;
+      }
+      </style>
+</head>
+<body>
+ <p class="phead" id="pindia">
+     INDIA</p>
+<div class="about"  id="india-about">
+    About India
+</div>
+
+<p class="phead" id="pusa">
+        USA</p>
+   <div class="about"  id="usa-about">
+       About USA
+   </div>
+
+   <p class="phead" id="pjapan">
+        JAPAN</p>
+   <div class="about"  id="japan-about">
+       About Japan
+   </div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){ 
+    $(".about").hide();
+
+    $("#pindia").click(function(){
+        $("#india-about").slideDown();
+    });
+
+    $("#pusa").click(function(){
+        $("#usa-about").slideDown();
+    });
+
+    $("#pjapan").click(function(){
+        $("#japan-about").slideDown();
+    });
+});
+
+</script>
