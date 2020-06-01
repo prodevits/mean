@@ -5,8 +5,8 @@ import { Product } from '../models/product.model';
 @Injectable({providedIn:'root'})
 export class ProductService{
 private productsList:Product[]=[{id:1,name:"Nut 3.0 mm",price:2.4},{id:2,name:"Screw 3.0 mm",price:4.5}];
-onProductChange:EventEmitter<Product[]>=new EventEmitter<Product[]>();
-onProductEdit:EventEmitter<Product>=new EventEmitter<Product>();
+// onProductChange:EventEmitter<Product[]>=new EventEmitter<Product[]>();
+// onProductEdit:EventEmitter<Product>=new EventEmitter<Product>();
 getProducts(){
     const pl=[...this.productsList];
     return pl;
@@ -20,20 +20,20 @@ getProductById(id:number):Product{
 
 addProduct(product:Product){
     this.productsList.push(product);
-    this.onProductChange.emit([...this.productsList]);    
+    // this.onProductChange.emit([...this.productsList]);    
 }
 
 updateProduct(product:Product){
     const index=this.productsList.findIndex((p)=>p.id==product.id);
     this.productsList[index]=product;
-    this.onProductChange.emit([...this.productsList]);    
+    // this.onProductChange.emit([...this.productsList]);    
 }
 
 
 removeProduct(id:number){
     const index=this.productsList.findIndex((p)=>p.id==id);
     this.productsList.splice(index,1);
-    this.onProductChange.emit([...this.productsList]);
+    // this.onProductChange.emit([...this.productsList]);
 }
 
 isIdUsed(id:number){
@@ -41,6 +41,6 @@ isIdUsed(id:number){
 }
 
 editProduct(product){
-this.onProductEdit.emit(product);
+// this.onProductEdit.emit(product);
 }
 }

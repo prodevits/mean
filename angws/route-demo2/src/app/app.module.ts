@@ -19,6 +19,8 @@ import { ProductsComponent } from './products/products.component';
 import { ShowProductComponent } from './products/show-product/show-product.component';
 import { RemoveProductComponent } from './remove-product/remove-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
+import { DemoChildComponent } from './life-cycle-demo/demo-child/demo-child.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     ProductsComponent,
     ShowProductComponent,
     RemoveProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    LifeCycleDemoComponent,
+    DemoChildComponent
   ],
   imports: [
     BrowserModule,

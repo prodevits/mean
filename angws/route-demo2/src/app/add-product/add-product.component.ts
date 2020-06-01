@@ -37,7 +37,6 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-
   update(){
       const p={id:this.id,name:this.name,price:this.price}; 
       this.productService.updateProduct(p);

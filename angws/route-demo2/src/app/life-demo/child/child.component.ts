@@ -18,8 +18,7 @@ export class ChildComponent implements OnInit ,OnChanges, OnDestroy, DoCheck,Aft
    
   }
   ngOnChanges(changes: SimpleChanges) {
-    console.log("Child NG Change : "+this.data);
-    
+    console.log("Child NG Change : "+this.data);    
     for (let propName in changes) {
       let chng = changes[propName];
       let cur  = JSON.stringify(chng.currentValue);

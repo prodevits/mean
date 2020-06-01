@@ -13,6 +13,7 @@ import { LifeDemoComponent } from './life-demo/life-demo.component';
 import { ProductsComponent } from './products/products.component';
 import { RemoveProductComponent } from './remove-product/remove-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
 
 
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'states',component:IndianStatesComponent},  
   {path:'capital/:code',component:StatesCapitalComponent},   
   {path:'addState',component:AddIndianStateComponent}, 
-  {path:'lcDemo',component:LifeDemoComponent},   
+  {path:'lcDemo1',component:LifeCycleDemoComponent},  
+  {path:'lcDemo2',component:LifeDemoComponent}, 
   {path:'products',component:ProductsComponent},
   {path:'addProduct',component:AddProductComponent},
   {path:'editProduct/:id',component:AddProductComponent},  
