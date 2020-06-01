@@ -13,6 +13,12 @@ import { IndianStatesComponent } from './indian-states/indian-states.component';
 import { StatesCapitalComponent } from './states-capital/states-capital.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddIndianStateComponent } from './add-indian-state/add-indian-state.component'
+import { LifeDemoComponent } from './life-demo/life-demo.component';
+import { ChildComponent } from './life-demo/child/child.component';
+import { ProductsComponent } from './products/products.component';
+import { ShowProductComponent } from './products/show-product/show-product.component';
+import { RemoveProductComponent } from './remove-product/remove-product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 @NgModule({
@@ -25,7 +31,13 @@ import { AddIndianStateComponent } from './add-indian-state/add-indian-state.com
     IndianStatesComponent,
     StatesCapitalComponent,
     NotFoundComponent,
-    AddIndianStateComponent
+    AddIndianStateComponent,
+    LifeDemoComponent,
+    ChildComponent,
+    ProductsComponent,
+    ShowProductComponent,
+    RemoveProductComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

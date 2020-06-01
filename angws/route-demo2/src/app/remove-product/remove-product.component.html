@@ -1,0 +1,18 @@
+<h3>Product Remove Confirmation</h3>
+
+<table>
+    <tr>
+        <td>Name : </td>
+        <td>{{product.name}}</td>
+    </tr>
+    <tr>
+        <td>Price : </td>
+        <td>{{product.price}}</td>
+    </tr>
+</table>
+<br>
+<input type="checkbox" [(ngModel)]="confirm">
+Are you sure to Remove this Product?
+<br>
+<button [disabled]="!confirm" (click)="remove()">Confirm</button>
+<button (click)="cancel()">Cancel</button>
