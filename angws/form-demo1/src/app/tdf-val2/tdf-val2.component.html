@@ -1,0 +1,127 @@
+<h2>Employee Info</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form novalidate action="" #empForm="ngForm" (submit)="onSubmit()">
+            <div class="alert alert-danger" *ngIf="empForm.touched && empForm.invalid">
+                    <li *ngIf="fname.errors && fname.errors.required">Name is Required</li>
+                    <li *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</li>
+                    <li *ngIf="email.errors">Invalid Email</li>
+                
+            </div>
+            <div class="form-group"  >
+                <label for="" class="col-form-label" >Name:</label>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="text" name="fname" class="form-control" placeholder="First Name" #fname="ngModel" minlength="4" required  [ngClass]="{'is-invalid' : fname.touched && fname.invalid}" ngModel>
+                        <div class="invalid-feedback">
+                                <span *ngIf="fname.errors && fname.errors.required">Name is Required</span>
+                                <span *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</span>
+                            </div>
+                    </div>
+                    
+                    <div class="col-md">
+                        <input type="text"  name="lname" class="form-control" placeholder="Last Name" ngModel>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                    <label for="" >Email:</label>
+                    <input type="text" name="email" class="form-control"  email #email="ngModel" [ngClass]="{'is-invalid' : email.invalid}" ngModel>
+                    <div class="invalid-feedback">
+                        Invalid Email
+                     </div>
+    </div>
+    <div class="form-group">
+            <label for="" >Gender :
+                    <input type="radio" name="gender" value="MALE" ngModel> Male
+                    <input type="radio" name="gender" value="FEMALE" ngModel> Female
+                
+            </label>
+         
+        </div>
+<div class="form-group">
+     <label for="">
+            Is Nri :
+            <input type="checkbox" name="nri" ngModel>
+         
+     </label>
+</div>
+              <br>
+            <br>
+
+            <button [disabled]="empForm.invalid">Submit</button>
+            <button type="button" (click)="clear()">Clear</button>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <h3>Form Status</h3>
+        <table class="table table-bordered table-sm">
+            <tr>
+                <td>empForm.value</td>
+                <td>{{empForm.value | json}}</td>
+            </tr>
+            <tr>
+                <td>empForm.touched</td>
+                <td>{{empForm.touched}}</td>
+            </tr>
+            <tr>
+                <td>empForm.submitted</td>
+                <td>{{empForm.submitted}}</td>
+            </tr>
+
+            <tr>
+                <td>empForm.pristine</td>
+                <td>{{empForm.pristine}}</td>
+            </tr>
+            <tr>
+                <td>empForm.dirty</td>
+                <td>{{empForm.dirty}}</td>
+            </tr>
+            <tr>
+                <td>empForm.valid</td>
+                <td>{{empForm.valid}}</td>
+            </tr>
+            <tr>
+                <td>empForm.invalid</td>
+                <td>{{empForm.invalid}}</td>
+            </tr>
+        </table>
+        <h3>Form Filed "fname" Status</h3>
+        <table class="table table-bordered table-sm">
+            <tr>
+                <td>fname.value</td>
+                <td>{{fname.value }}</td>
+            </tr>
+            <tr>
+                <td>fname.touched</td>
+                <td>{{fname.touched}}</td>
+            </tr>          
+
+            <tr>
+                <td>fname.pristine</td>
+                <td>{{fname.pristine}}</td>
+            </tr>
+            <tr>
+                <td>fname.dirty</td>
+                <td>{{fname.dirty}}</td>
+            </tr>
+            <tr>
+                <td>fname.valid</td>
+                <td>{{fname.valid}}</td>
+            </tr>
+            <tr>
+                <td>fname.invalid</td>
+                <td>{{fname.invalid}}</td>
+            </tr>           
+            <tr>
+                    <td>fname.errors</td>
+                    <td>{{fname.errors |json}}</td>
+                </tr>
+                
+        </table>
+    </div>
+</div>

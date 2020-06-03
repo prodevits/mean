@@ -1,0 +1,26 @@
+<h2>Employee Info</h2>
+
+<form action="" #empForm="ngForm" (submit)="onSubmit()">
+Enter Name:
+<input type="text" name="fname" placeholder="First Name" ngModel>
+<input type="text" name="lname" placeholder="Last Name" ngModel>
+<br>
+<br>
+Email:
+<input type="text" name="email"  ngModel>
+
+<br>
+<br>
+Gender:
+<input type="radio" name="gender" value="MALE" ngModel> Male
+<input type="radio" name="gender" value="FEMALE" ngModel> Female
+<br>
+<br>
+Is Nri 
+<input type="checkbox" name="nri"  ngModel>
+<br>
+<br>
+
+<button>Submit</button>
+<button type="button" (click)="clear()">Clear</button>
+</form>
