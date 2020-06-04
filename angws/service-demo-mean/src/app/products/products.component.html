@@ -1,1 +1,10 @@
 <h3>Product List</h3>
+
+<table border="1" width="300">
+    <tr  *ngFor="let p of products">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.price}}</td>
+        <td><button (click)="remove(p.id)">Remove</button></td>
+    </tr>
+</table>
