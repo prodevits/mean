@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="js/jquery.js"></script>
+     <style>
+          body {
+               margin: 0;
+               padding: 0;
+          }
+          img{
+            width: 500px;
+               height: 300px; 
+          }
+          #div1 {
+               margin-top: 100px;
+               margin-left: 400px;
+               width: 500px;
+               height: 300px;
+               border: 1px solid #000;
+               border-radius: 10px 10px 10px 10px;
+          }
+
+          #div2 {
+               margin: 10px 400px;
+               width: 500px;
+               /* border: 1px solid #000; */
+          }
+
+          #btn2 {
+               float: right;
+          }
+     </style>
+</head>
+
+<body>
+     <div id="div1">
+         <img src="imgs/one.jpg"  alt="image" id="imgchange">
+     </div>
+     <div id="div2"> 
+         <button id="btn1">Pervious</button>
+
+          <button id="btn2">Next</button></div>
+</body>
+
+</html>
+<Script>
+     $(document).ready(function () {
+          var count = ["imgs/one.jpg","imgs/two.jpg","imgs/three.jpg","imgs/four.jpg"];
+          var lastIndex=count.length-1;
+          var i = 0;
+          $("#btn1").prop('disabled',true);
+
+          $('#btn1').click(function () { 
+              i--;             
+               
+                $('#imgchange').attr('src', count[i]);
+                if(i==0){
+                   $("#btn1").prop('disabled',true);
+               }
+
+               if(i<lastIndex && $("#btn2").prop('disabled')){
+                $("#btn2").prop('disabled',false);
+         
+               }
+          });
+          $('#btn2').click(function () {
+               i++;       
+               console.log(i);                         
+               $('#imgchange').attr('src', count[i]);              
+               if(i==lastIndex){                  
+                   $("#btn2").prop('disabled',true);
+               }
+               if(i>0 && $("#btn1").prop('disabled')){
+                $("#btn1").prop('disabled',false);
+         
+               }
+
+          });
+
+     });
+</Script>

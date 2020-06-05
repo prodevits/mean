@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="js/jquery.js"></script>
+     <style>
+          body {
+               margin: 0;
+               padding: 0;
+          }
+          img{
+                width: 500px;
+                height: 300px; 
+                float: left;
+          }
+          #div1 {
+               margin-top: 100px;
+               margin-left: 400px;
+               width: 500px;
+               height: 300px;
+               border: 1px solid #000;
+               border-radius: 10px 10px 10px 10px;
+               overflow: hidden;
+               position: relative;
+          }
+          #frame{
+              position: absolute;
+              left: 0;
+              top: 0;           
+          }
+
+          #div2 {
+               margin: 10px 400px;
+               width: 500px;
+               /* border: 1px solid #000; */
+          }
+
+          #btn2 {
+               float: right;
+          }
+     </style>
+</head>
+
+<body>
+     <div id="div1">
+         <div id="frame">
+             <img src="imgs/one.jpg"  alt="image" class="pimg">
+            <img src="imgs/two.jpg"  alt="image" class="pimg">
+            <img src="imgs/three.jpg"  alt="image" class="pimg">
+            <img src="imgs/four.jpg"  alt="image" class="pimg">
+   </div>
+     </div>
+     <div id="div2"> 
+         <button id="btn1">Pervious</button>
+
+          <button id="btn2">Next</button></div>
+</body>
+
+</html>
+<Script>
+     $(document).ready(function () {
+         var count=$(".pimg").length;   // array size
+         var lastIndex=count-1;
+          var w=$(".pimg").width();
+          var left=0;
+          $("#frame").width(count*w);
+          
+
+          var i = 0;
+          $("#btn1").prop('disabled',true);
+
+          $('#btn1').click(function () { 
+              i--;            
+               
+              left=left+w;   
+               $("#frame").animate({left:left},500);
+          
+                 if(i==0){
+                   $("#btn1").prop('disabled',true);
+               }
+
+               if(i<lastIndex && $("#btn2").prop('disabled')){
+                $("#btn2").prop('disabled',false);
+         
+               }
+          });
+
+          $('#btn2').click(function () {
+               i++;    
+               left=left-w;   
+               $("#frame").animate({left:left},500);
+               if(i==lastIndex){                  
+                   $("#btn2").prop('disabled',true);
+               }
+               if(i>0 && $("#btn1").prop('disabled')){
+                $("#btn1").prop('disabled',false);
+         
+               }
+
+          });
+
+     });
+</Script>

@@ -15,6 +15,9 @@
 <input type="checkbox" class="chk"> B
 <br>
 <input type="checkbox" class="chk"> C
+
+<br>
+<input type="checkbox" class="chk"> D
 </body>
 </html>
 
@@ -24,6 +27,8 @@ $(document).ready(function(){
         var v=$(this).prop('checked');
         $(".chk").prop('checked',v);        
     });
+
+
     $(".chk").click(function(){
         var checked=true;
         $(".chk").each(function(i,e){

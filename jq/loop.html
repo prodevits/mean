@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Document</title>
+      <script src="js/jquery.js"></script>
+</head>
+<body>
+    <input type="text" class="txt">
+    <br>
+    <br>
+    <input type="text" class="txt">
+    <br>
+    <br>
+    <input type="text" class="txt">
+    <br>
+    <br>
+    <p id="out"></p>
+    <hr>
+    <button id="addBtn">Add</button>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#addBtn").click(function(){
+            var t=0;
+            $(".txt").each(function(i,e){
+                t=t+parseFloat( $(e).val());
+            });
+            $("#out").html(t);
+        });
+
+    });
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Document</title>
+<script src="js/jquery.js"></script>
+<style>
+#box{
+    width:300px;
+    height:200px;
+    left:0;
+    top:50px;
+    position: absolute;
+    background: #F00;
+}
+</style>
+</head>
+<body>
+    <button id="btn">Move</button>
+    <div id="box"></div>
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+    $("#btn").click(function(){        
+  //   $("#box").animate({'left':'200px',width:'100px',height:'50px'},1000);    
+
+  $("#box").animate({width:0},1000);    
+ 
+    });
+});
+</script>

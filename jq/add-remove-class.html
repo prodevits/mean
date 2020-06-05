@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Document</title>
+       <script src="js/jquery.js"></script>
+       <style>
+       .bg-red{
+           background: #F00;
+       }
+
+      
+       .brd{
+           border:5px solid #0F0;
+       }
+       </style>
+</head>
+<body>
+    <h1>Hello</h1>    
+    <input type="checkbox" id="chkBG">Red BG
+    <br>
+    <br>
+    <input type="checkbox" id="chkBRD">Border
+  
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+    
+    $("#chkBG").click(function(){
+        if($(this).prop('checked')){
+            $('h1').addClass('bg-red')
+        }else{
+            $('h1').removeClass('bg-red')
+        }
+       });
+
+       $("#chkBRD").click(function(){
+        if($(this).prop('checked')){
+            $('h1').addClass('brd')
+        }else{
+            $('h1').removeClass('brd')
+        }
+       });
+});
+</script>
