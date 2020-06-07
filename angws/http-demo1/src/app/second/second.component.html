@@ -1,0 +1,8 @@
+Enter State Code <input type="text" [(ngModel)]="stateCode">
+<button (click)="loadCities()">Get Cities</button>
+<hr>
+<table border="1">
+    <tr *ngFor="let s of cities">
+        <td>{{s}}</td>
+    </tr>
+</table>
