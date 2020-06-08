@@ -40,7 +40,9 @@ $(document).ready(function(){
                     let cities=JSON.parse(responseData);
                     let s="<table border='1'>";                    
                     for(let ct of cities){
-                        s=s+`<tr><td>${ct}</td></tr>`;
+                        //s=s+`<tr><td>${ct}</td></tr>`;
+                        s=s+'<tr><td>'+ct+'</td></tr>';
+                        
                     }
                     s=s+"</table>"
                $("#out2").html(s);
