@@ -3,28 +3,22 @@
 <div class="row">
     <div class="col-md-6">
         <form novalidate action="" #empForm="ngForm" (submit)="onSubmit()">
-            <div class="alert alert-danger" *ngIf="empForm.touched && empForm.invalid">
-                    <li *ngIf="fname.errors && fname.errors.required">Name is Required</li>
-                    <li *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</li>
-                    <li *ngIf="email.errors">Invalid Email</li>
-                
-            </div>
+            
             <div class="form-group"  >
                 <label for="" class="col-form-label" >Name:</label>
                 <div class="row">
                     <div class="col-md">
-                        <input type="text" name="fname" class="form-control" placeholder="First Name" #fname="ngModel" minlength="4" required  [ngClass]="{'is-invalid' : fname.touched && fname.invalid}" ngModel>
+                        <input type="text" name="fname"  class="form-control" placeholder="First Name" #fname="ngModel" minlength="4" required fucase [ngClass]="{'is-invalid' : fname.touched && fname.invalid}" ngModel>
                         <div class="invalid-feedback">
                                 <span *ngIf="fname.errors && fname.errors.required">Name is Required</span>
                                 <span *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</span>
+                                <br><span *ngIf="fname.errors && fname.errors.uname">{{fname.errors.uname.message}} </span>
                             </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="col-md">
                         <input type="text"  name="lname" class="form-control" placeholder="Last Name" ngModel>
                     </div>
                 </div>
-
             </div>
 
             <div class="form-group">
@@ -33,11 +27,6 @@
                     <div class="invalid-feedback">
                         Invalid Email
                      </div>
-                     <div class="alert alert-danger" 
-			*ngIf="email.invalid && email.touched" >
-Enter a valid Email
-</div>
-
     </div>
     <div class="form-group">
             <label for="" >Gender :

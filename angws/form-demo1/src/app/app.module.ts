@@ -7,6 +7,8 @@ import { TdfDemo1Component } from './tdf-demo1/tdf-demo1.component';
 import { TdfDemo2Component } from './tdf-demo2/tdf-demo2.component';
 import { TdfVal1Component } from './tdf-val1/tdf-val1.component';
 import { TdfVal2Component } from './tdf-val2/tdf-val2.component';
+import { TdfVal3Component } from './tdf-val3/tdf-val3.component';
+import { FucaseValidator } from './validators/fucase.validator';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TdfVal2Component } from './tdf-val2/tdf-val2.component';
     TdfDemo1Component,
     TdfDemo2Component,
     TdfVal1Component,
-    TdfVal2Component
+    TdfVal2Component,
+    TdfVal3Component,
+    FucaseValidator
   ],
   imports: [
     BrowserModule,
