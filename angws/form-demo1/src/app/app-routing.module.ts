@@ -7,6 +7,7 @@ import { TdfVal2Component } from './tdf-val2/tdf-val2.component';
 import { TdfVal3Component } from './tdf-val3/tdf-val3.component';
 import { TdfVal1BsComponent } from './tdf-val1-bs/tdf-val1-bs.component';
 import { TdfVal2BsComponent } from './tdf-val2-bs/tdf-val2-bs.component';
+import { TdfCustomVal1Component } from './tdf-custom-val1/tdf-custom-val1.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path:"tdfVal3",component:TdfVal3Component}, 
   {path:"tdfVal1BS",component:TdfVal1BsComponent},
   {path:"tdfVal2BS",component:TdfVal2BsComponent},
-  
+  {path:"tdfCustVal1",component:TdfCustomVal1Component},  
   {path:'',redirectTo:'tdf1',pathMatch:'full'}
 ];
 

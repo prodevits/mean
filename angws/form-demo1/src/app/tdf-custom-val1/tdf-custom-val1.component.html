@@ -1,0 +1,60 @@
+<h3>Registration</h3>
+<form #regForm="ngForm">
+        <table>
+                <tr>
+                      <td valign="top">Name<span class="required">*</span></td>
+                      <td><input type="text" name="name" #name="ngModel" fucase required minlength="4" ngModel>
+                        <div *ngIf="name.touched && name.errors && name.errors.fucase" class="field-error-block">
+                                  {{name.errors.fucase.message}}
+                              </div>
+                  </td>        
+                </tr>
+                <tr>
+                        <td valign="top">Age</td>
+                        <td><input type="text" name="age" #age="ngModel" minvalue="18" ngModel>
+                          <div *ngIf="age.touched && age.errors && age.errors.minvalue" class="field-error-block">
+                                Minimum age  {{age.errors.minvalue.minimum}} required
+                                </div>
+                    </td>        
+                  </tr>
+                  <tr>
+                      <td valign="top">Salary</td>
+                      <td><input type="text" name="salary" #salary="ngModel"  [range]="['10000','50000']" ngModel>
+                        <div *ngIf="salary.touched && salary.errors" class="field-error-block">
+                             Salary must be in between {{salary.errors.range.min}} and {{salary.errors.range.max}}
+                              </div>
+                  </td>        
+                </tr>
+                <tr>
+                      <td valign="top">Email<span class="required">*</span></td>
+                      <td><input type="text" name="email" #email="ngModel" required email ngModel>
+                        <div *ngIf="email.touched && email.errors" class="field-error-block">
+                              <span *ngIf="email.errors.required">Email Required</span>
+                              <span *ngIf="email.errors.email">Invalid Email</span>
+                        </div> 
+                  </td>        
+                </tr>
+                <tr>
+                      <td valign="top">Password<span class="required">*</span></td>
+                      <td><input type="text" name="pass" #pass="ngModel" required textmatch="cpass" ngModel>
+                        <div *ngIf="pass.touched && pass.errors && pass.errors.required" class="field-error-block">
+                              Password Required
+                        </div>
+                                 
+                    </td>        
+                </tr>
+                <tr>
+                      <td valign="top">Confirm Password<span class="required">*</span></td>
+                      <td><input type="text" name="cpass" #cpass="ngModel" textmatch="pass" ngModel>       
+                      <div *ngIf="cpass.touched && (pass.errors && pass.errors.textmatch) || (cpass.errors && cpass.errors.textmatch)" class="field-error-block">
+                              Password and Confirm Password not matched
+                  </div>
+                  
+                </td> 
+                </tr>
+                
+              </table>
+
+              <button>Submit</button>
+ 
+</form>

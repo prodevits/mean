@@ -11,6 +11,10 @@ import { TdfVal3Component } from './tdf-val3/tdf-val3.component';
 import { FucaseValidator } from './validators/fucase.validator';
 import { TdfVal1BsComponent } from './tdf-val1-bs/tdf-val1-bs.component';
 import { TdfVal2BsComponent } from './tdf-val2-bs/tdf-val2-bs.component';
+import { TdfCustomVal1Component } from './tdf-custom-val1/tdf-custom-val1.component';
+import { TextMatchValidator } from './validators/text-match-validator';
+import { MinValueValidator } from './validators/min-value.validator';
+import { RangeValidator } from './validators/range.validator';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { TdfVal2BsComponent } from './tdf-val2-bs/tdf-val2-bs.component';
     TdfVal3Component,
     FucaseValidator,
     TdfVal1BsComponent,
-    TdfVal2BsComponent
+    TdfVal2BsComponent,
+    TdfCustomVal1Component,
+    TextMatchValidator,
+    MinValueValidator,
+    RangeValidator
   ],
   imports: [
     BrowserModule,

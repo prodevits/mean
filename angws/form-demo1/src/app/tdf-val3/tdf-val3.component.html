@@ -12,7 +12,7 @@
                         <div class="invalid-feedback">
                                 <span *ngIf="fname.errors && fname.errors.required">Name is Required</span>
                                 <span *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</span>
-                                <br><span *ngIf="fname.errors && fname.errors.uname">{{fname.errors.uname.message}} </span>
+                                <br><span *ngIf="fname.errors && fname.errors.fucase">{{fname.errors.fucase.message}} </span>
                             </div>
                     </div>                    
                     <div class="col-md">

@@ -17,8 +17,7 @@
                       &nbsp;
                       <input type="text" name="lname"  placeholder="Last Name"   ngModel>
                        <span class="error-message" *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</span>
-                       <span class="error-message" *ngIf="fname.touched && fname.errors && fname.errors.required">Name is Required</span>
-                      
+                       <span class="error-message" *ngIf="fname.touched && fname.errors && fname.errors.required">Name is Required</span>                      
                   </td>
               </tr>
               <tr>
