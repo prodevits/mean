@@ -11,9 +11,12 @@ export class TdfDemo1Component implements OnInit {
   
   onSubmit(){
     console.log(this.empForm.value);
+
     const obj=this.empForm.value;
     console.log(obj);
-    console.log("First Name="+obj.fname); 
+    const n=obj.fname;
+    console.log("first name="+n);
+
   }
 
   clear()
@@ -26,8 +29,11 @@ export class TdfDemo1Component implements OnInit {
   }
 
 edit(){
-  const obj={fname:'Aman',lname:'Sharma',email:'ramesh@gmail.com',gender:'MALE',nri:true};
-  this.empForm.setValue(obj);
+  // const obj={fname:'Aman',lname:'Sharma',email:'ramesh@gmail.com',gender:'MALE',nri:true};
+  // this.empForm.setValue(obj);
+
+  const obj={fname:'Aman',lname:'Sharma'};
+  this.empForm.form.patchValue(obj);
 }
 
 }

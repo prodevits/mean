@@ -9,6 +9,7 @@ import { TdfVal1Component } from './tdf-val1/tdf-val1.component';
 import { TdfVal2Component } from './tdf-val2/tdf-val2.component';
 import { TdfVal3Component } from './tdf-val3/tdf-val3.component';
 import { FucaseValidator } from './validators/fucase.validator';
+import { TdfVal1BsComponent } from './tdf-val1-bs/tdf-val1-bs.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FucaseValidator } from './validators/fucase.validator';
     TdfVal1Component,
     TdfVal2Component,
     TdfVal3Component,
-    FucaseValidator
+    FucaseValidator,
+    TdfVal1BsComponent
   ],
   imports: [
     BrowserModule,
