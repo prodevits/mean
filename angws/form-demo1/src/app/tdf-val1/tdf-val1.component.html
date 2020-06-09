@@ -1,40 +1,39 @@
 <h2>Employee Info</h2>
 
-<div class="row">
-    <div class="col-md-6">
+<div class="wrapper">
+    <div class="section">
         <form action="" #empForm="ngForm" (submit)="onSubmit()">
-            <div class="form-group">
-                <label for="" class="col-form-label" >Name:</label>
-                <div class="row">
-                    <div class="col-md">
-                        <input type="text" name="fname" class="form-control" placeholder="First Name" minlength="4" required ngModel>
-                    </div>
-                    <div class="col-md">
-                        <input type="text" name="lname" class="form-control" placeholder="Last Name"  required ngModel>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                    <label for="" >Email:</label>
-                    <input type="text" name="email" class="form-control" email ngModel>
-    </div>
-    <div class="form-group">
-            <label for="" >Gender :
-                    <input type="radio" name="gender" value="MALE" ngModel> Male
+          <table>
+              <tr>
+                  <td>Name:</td>
+                  <td>  
+                      <input type="text" name="fname"  placeholder="First Name"  required ngModel>
+                      &nbsp;
+                      <input type="text" name="lname"  placeholder="Last Name"   ngModel>
+               
+                  </td>
+              </tr>
+              <tr>
+                  <td>Email:                 </td>
+                  <td>  <input type="text" name="email"  email ngModel>
+                  </td>
+              </tr>
+              <tr>
+                  <td>Gender :</td>
+                  <td>         <input type="radio" name="gender" value="MALE" ngModel> Male
                     <input type="radio" name="gender" value="FEMALE" ngModel> Female
-                
-            </label>
-         
-        </div>
-<div class="form-group">
-     <label for="">
-            Is Nri :
-            <input type="checkbox" name="nri" ngModel>
-         
-     </label>
-</div>
+       </td>
+              </tr>
+              <tr>
+                  <td>IS NRI : </td>
+                  <td>
+                        <input type="checkbox" name="nri" ngModel>
+                  </td>
+              </tr>
+          </table>
+
+  
+
               <br>
             <br>
 
@@ -43,8 +42,8 @@
         </form>
     </div>
 
-    <div class="col-md-6">
-        <table class="table table-bordered">
+    <div class="section">
+        <table width="400" border="1">
             <tr>
                 <td>empForm.value</td>
                 <td>{{empForm.value | json}}</td>

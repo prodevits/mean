@@ -1,7 +1,6 @@
 <h2>Employee Info</h2>
-<div class="row">
-    <div class="col-md-6">
-
+<div class="wrapper">
+    <div class="section">
         <form action="" #empForm="ngForm" (submit)="onSubmit()">
             Enter Name:
             <input type="text" name="fname" placeholder="First Name" ngModel>
@@ -28,8 +27,8 @@
         </form>
     </div>
 
-    <div class="col-md-6">
-        <div class="table table-bordered">
+    <div class="section">
+        <table border="1" width="400">
             <tr>
                 <td>empForm.value</td>
                 <td>{{empForm.value | json}}</td>
@@ -59,6 +58,6 @@
                         <td>empForm.invalid</td>
                         <td>{{empForm.invalid}}</td>
                     </tr>
-        </div>
+                </table>
     </div>
 </div>
