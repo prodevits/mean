@@ -11,21 +11,25 @@
                 </div>
             <table>
               <tr>
-                  <td>Name:</td>
+                  <td valign="top">Name:</td>
                   <td>  
                       <input type="text" name="fname" #fname="ngModel" placeholder="First Name" minlength="4" required ngModel>
                       &nbsp;
                       <input type="text" name="lname"  placeholder="Last Name"   ngModel>
-               
+                       <span class="error-message" *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</span>
+                       <span class="error-message" *ngIf="fname.touched && fname.errors && fname.errors.required">Name is Required</span>
+                      
                   </td>
               </tr>
               <tr>
-                  <td>Email:                 </td>
+                  <td valign="top">Email:                 </td>
                   <td>  <input type="text" name="email" #email="ngModel"  email ngModel>
+                    <span class="error-message"  *ngIf="email.errors">Invalid Email</span>
+              
                   </td>
               </tr>
               <tr>
-                  <td>Gender :</td>
+                  <td valign="top">Gender :</td>
                   <td>         <input type="radio" name="gender" value="MALE" ngModel> Male
                     <input type="radio" name="gender" value="FEMALE" ngModel> Female
        </td>

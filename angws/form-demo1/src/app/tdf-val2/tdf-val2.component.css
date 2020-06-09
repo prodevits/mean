@@ -21,4 +21,18 @@ overflow: hidden;
     background: rgb(240, 142, 142);
     padding:10px 30px;
     margin:5px auto;
+    font-size: 0.75rem;
+}
+
+
+
+.error{
+    visibility: hidden;
+}
+
+.error-message{
+    color:red;
+    font-size: 0.75rem;    
+    visibility: visible;
+    display: block;
 }
