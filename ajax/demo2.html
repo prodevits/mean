@@ -12,7 +12,8 @@ $(document).ready(function(){
                 var s="<table border='1'>";
                     let states=JSON.parse(responseData);
                     for(var st of states){
-                        s=s+`<tr><td>${st.code}</td><td>${st.name}</td></tr>`;
+                        // s=s+`<tr><td>${st.code}</td><td>${st.name}</td></tr>`;
+                        s=s+'<tr><td>'+st.code+'</td><td>'+st.name+'</td></tr>';
                     }
                     s=s+"</table>"
                $("#out").html(s);

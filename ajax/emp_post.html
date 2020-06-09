@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Employee</title>
+<script src="jquery.min.js"></script>
+<style>
+.success{
+    background: rgb(0, 255, 200);
+    color: rgb(3, 104, 87);
+    padding: 10px 5px;
+}
+.error{
+    color: #F00;
+}
+</style>
+<script>
+$(document).ready(function(){
+    $("#successMsg").hide();
+    function loadEmps(){
+        $.ajax({
+            url:"http://demo.itvidya.in/emps.php",
+            method:'get',
+            success:function(emps){
+                    emps.sort((a,b)=>a.empid-b.empid);
+                   let s="<table border='1' width='500' cellpadding='5'>";
+                   for(let e of emps){
+                        s=s+`<tr><td>${e.empid}</td><td>${e.name}</td><td>${e.city}</td><td>${e.salary}</td><td><a href="#" class='remove' id="${e.empid}" >Remove</a></td></tr>`;
+                    }
+                    s=s+"</table>"
+               $("#elist").html(s);
+            }
+        });
+    }
+    loadEmps();
+
+    $("#btnAdd").click(function(){
+        $("#successMsg").hide();           
+        var formData = $('#empform').serialize();
+        $.ajax({
+            url:"http://demo.itvidya.in/add-emp-post.php",
+            method:'post',
+            data:formData,
+            success:function(res){
+                  console.log(res);
+                  if(res.status=='fail'){
+                      $("#errEmpid").text(res.message);
+                  }else{
+                    clear();
+                    $("#successMsg").show();
+                    $("#successMsg").text(res.message);
+                    loadEmps();   
+                  }
+                               
+            }
+        });
+    });
+
+    $(document).on("click","a.remove",function(event){
+         event.preventDefault();
+         var empid=$(this).attr("id");
+         if(confirm("Are you sure to remove emp with id="+empid)){
+            $.ajax({
+            url:"http://demo.itvidya.in/remove-emp.php",
+            method:'get',
+            data:{empid:empid},
+            success:function(res){
+                  loadEmps();
+            }
+        });
+         }
+         
+    
+    });
+
+    function clear(){
+        $("#errEmpid").text('');
+        $('#empform').trigger("reset");
+    }
+});
+</script>
+</head>
+<body>
+<h2>Add Employee</h2>
+<h3 class="success" id="successMsg"></h3>
+<form action="" id="empform">
+        <input type="text" placeholder="Emp ID" name="empid" >
+        <span class="error" id="errEmpid"></span>
+        <br>
+        <input type="text" placeholder="Name" name="name" ><br>
+        <input type="text" placeholder="City" name="city"><br>
+        <input type="text" placeholder="Salary" name="salary"><br>
+        <button id="btnAdd" type="button">Add</button>
+</form>
+
+    <h2>Employee List</h2>
+    <div id="elist"></div>
+</body>
+</html>
+
+<!-- 
+urlGet='http://demo.itvidya.in/emps.php';
+urlPost='http://demo.itvidya.in/add-emp-post.php';
+-->
+
+<!-- 
+    response from success add
+    {status: "success", message: "Employee Added with ID: 909"} 
+    response from duplicate entry
+    {status: "fail", message: "Duplicate Entry"}
+-->
