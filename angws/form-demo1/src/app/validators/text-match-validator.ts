@@ -16,7 +16,8 @@ export class TextMatchValidator implements Validator{
     validate(control:AbstractControl): ValidationErrors{  
   //      console.log(this.otherControlName);
 
-        const otherControl=control.parent.get(this.otherControlName);
+      //  const otherControl=control.parent.get(this.otherControlName);
+      const otherControl=control.root.get(this.otherControlName);
     
         if(otherControl){
             if(otherControl.errors){

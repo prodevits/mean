@@ -4,16 +4,19 @@
                 <tr>
                       <td valign="top">Name<span class="required">*</span></td>
                       <td><input type="text" name="name" #name="ngModel" fucase required minlength="4" ngModel>
-                        <div *ngIf="name.touched && name.errors && name.errors.fucase" class="field-error-block">
-                                  {{name.errors.fucase.message}}
-                              </div>
+                        <div *ngIf="name.touched && name.errors" class="field-error-block">
+                            <span *ngIf="name.errors.required"> Name Required</span>
+                            <span *ngIf="name.errors.fucase"> {{name.errors.fucase.message}}, </span>
+                            <span *ngIf="name.errors.minlength"> Minimum {{name.errors.minlength.requiredLength}} characters Required</span>
+                         
+                        </div>
                   </td>        
                 </tr>
                 <tr>
                         <td valign="top">Age</td>
                         <td><input type="text" name="age" #age="ngModel" minvalue="18" ngModel>
                           <div *ngIf="age.touched && age.errors && age.errors.minvalue" class="field-error-block">
-                                Minimum age  {{age.errors.minvalue.minimum}} required
+                                Minimum age  {{age.errors.minvalue.minimumRequired}} required
                                 </div>
                     </td>        
                   </tr>

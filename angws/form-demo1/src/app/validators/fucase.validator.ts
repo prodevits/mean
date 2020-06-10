@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl, Validators, ValidationErrors, Validator } from '@angular/forms';
-import { ValidationError } from 'json-schema';
+import { NG_VALIDATORS, AbstractControl, ValidationErrors, Validator } from '@angular/forms';
+
 
 @Directive({
   selector: '[fucase]',
@@ -11,6 +11,7 @@ import { ValidationError } from 'json-schema';
 }]
 })
 export class FucaseValidator implements Validator {
+
   validate(control: AbstractControl) 	:ValidationErrors
   {
   const s=control.value;

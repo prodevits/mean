@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl, Validators, ValidationErrors, Validator } from '@angular/forms';
+import { NG_VALIDATORS, AbstractControl,ValidationErrors, Validator } from '@angular/forms';
 
 
 @Directive({
@@ -18,7 +18,7 @@ export class MinValueValidator implements Validator {
   if(s){
       const v=parseFloat(s);
       if(v<this.minvalue)
-        return {'minvalue':{'minimum':this.minvalue}};
+        return {'minvalue':{'minimumRequired':this.minvalue}};
   }
   return null;
   }}
