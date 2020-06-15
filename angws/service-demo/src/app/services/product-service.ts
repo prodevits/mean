@@ -1,10 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Product } from '../add-product/models/product.model';
+import { Product } from '../model/product.model';
 
 @Injectable({providedIn:'root'})
 export class ProductService{
 private productsList:Product[]=[{id:1,name:"Nut 3.0 mm",price:2.4},{id:2,name:"Screw 3.0 mm",price:4.5}];
+
 onProductChange:EventEmitter<Product[]>=new EventEmitter<Product[]>();
+
 onProductEdit:EventEmitter<Product>=new EventEmitter<Product>();
 getProducts(){
     const pl=[...this.productsList];
