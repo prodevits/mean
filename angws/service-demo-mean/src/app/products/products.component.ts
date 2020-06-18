@@ -18,8 +18,6 @@ export class ProductsComponent implements OnInit {
       this.products=data;
     });
   }
-
-
   remove(id:number){
     this.service.removeProduct(id);
   }

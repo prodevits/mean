@@ -29,21 +29,27 @@ export class DemoChildComponent implements OnInit,OnChanges,DoCheck,AfterContent
   
   
   }
+
   ngDoCheck() {
   console.log("in child doCheck...");
   }
+
   ngAfterContentInit() {
   console.log("In child AfterContentInit");
   }
+
   ngAfterContentChecked() {
   console.log("In child AfterContentChecked");
   }
+
   ngAfterViewInit() {
   console.log("In child AfterViewInit");
   }
+
   ngAfterViewChecked() {
   console.log("In child AfterViewChecked");
   }
+  
   ngOnDestroy() {
   console.log("In child Destroy");
   }

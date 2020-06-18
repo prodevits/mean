@@ -7,8 +7,7 @@
                         <div *ngIf="name.touched && name.errors" class="field-error-block">
                             <span *ngIf="name.errors.required"> Name Required</span>
                             <span *ngIf="name.errors.fucase"> {{name.errors.fucase.message}}, </span>
-                            <span *ngIf="name.errors.minlength"> Minimum {{name.errors.minlength.requiredLength}} characters Required</span>
-                         
+                            <span *ngIf="name.errors.minlength"> Minimum {{name.errors.minlength.requiredLength}} characters Required</span>                         
                         </div>
                   </td>        
                 </tr>

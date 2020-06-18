@@ -4,7 +4,7 @@ console.log(nm);
 // nm=123;
 // console.log(nm);
 
-let a:number=34;
+
 
 
 

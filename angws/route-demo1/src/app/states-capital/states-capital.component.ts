@@ -16,10 +16,11 @@ export class StatesCapitalComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute,private stateService:StateService) { }
   
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params)=>{
-      this.stateCode=params['code'];
+    this.activatedRoute.params.subscribe((p)=>{
+      this.stateCode=p['code'];
       this.stateName=this.stateService.getStateName(this.stateCode);
       this.capital=this.stateService.getCapital(this.stateCode);
-    });
+
+         });
   }
 }

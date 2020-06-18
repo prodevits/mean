@@ -2,8 +2,12 @@ import { Injectable } from '@angular/core';
 
 @Injectable({providedIn:'root'})
 export class StateService{
-    private states=[{code:"mp",name:"Madhya Pradesh"},{code:"up",name:"Utter Pradesh"},{code:"mh",name:"Maharastra"}];
-    private capitals=[{state:"mp",capital:"Bhopal"},{state:"up",capital:"Lakhnow"},{state:"mh",capital:"Mumbai"}];
+    private states=[{code:"mp",name:"Madhya Pradesh"},
+    {code:"up",name:"Utter Pradesh"},
+    {code:"mh",name:"Maharastra"}];
+    
+    private capitals=[{state:"mp",capital:"Bhopal"},
+    {state:"up",capital:"Lakhnow"},{state:"mh",capital:"Mumbai"}];
   
     addIndianState(stCode:string,stName:string,cname:string){
         this.states.push({code:stCode,name:stName});

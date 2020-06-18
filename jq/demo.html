@@ -2,84 +2,110 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
      <script src="js/jquery.js"></script>
      <style>
-          body {
-               margin: 0;
-               padding: 0;
+          .success {
+               background: rgb(0, 255, 200);
+               color: rgb(3, 104, 87);
+               padding: 10px 5px;
           }
-          img{
-            width: 500px;
-               height: 300px; 
-          }
-          #div1 {
-               margin-top: 100px;
-               margin-left: 400px;
-               width: 500px;
-               height: 300px;
-               border: 1px solid #000;
-               border-radius: 10px 10px 10px 10px;
-          }
-
-          #div2 {
-               margin: 10px 400px;
-               width: 500px;
-               /* border: 1px solid #000; */
-          }
-
-          #btn2 {
-               float: right;
+          .error {
+               color: #F00;
           }
      </style>
+     <script>
+          $(document).ready(function () {
+               $("#successMsg").hide();
+               function loadEmps() {
+                    $("#spin").show();
+                    $.ajax({
+                         url: "http://demo.itvidya.in/emps.php",
+                         method: 'get',
+                         success: function (emp) {
+                              emp.sort(function (a, b) {
+                                   return a.empid - b.empid;
+                              });
+                              var s = "<table border='1' align=center cellspacing=0 width='500' cellpadding='5'>";
+                              for (var e of emp) {
+
+                                   s = s + "<tr><td>" + e.empid + "</td><td>" + e.name + "</td><td>" + e.city + "</td><td>" + e.salary + "</td><td><a href='#' class= 'remove' id=" + e.empid + " >Remove</a></td></tr>"
+                              }
+                              s = s + "</table>";
+                              $("#elist").html(s);
+                              $("#spin").hide();
+                         }
+                    });
+               }
+               loadEmps();
+               $("#btn").click(function () {
+                    $("#successMsg").hide();
+                    var formData = $('#empform').serialize();
+                  
+                    $.ajax({
+                         url: "http://demo.itvidya.in/add-emp-post.php",
+                         method: 'post',
+                         data: formData,
+                          success: function (r) {
+                              console.log(r);
+                              if (r.status == 'fail') {
+                                   $("#errEmpid").text(r.message);
+                              } else {
+                                   clear();
+                                   $("#successMsg").show();
+                                   $("#successMsg").text(r.message);
+                                   loadEmps();
+                              }
+
+                         }
+                    });
+               });
+               $(document).on("click", "a.remove", function (event) {
+                    event.preventDefault();
+                    var empid = $(this).attr("id");
+                    if (confirm("Are you sure to remove emp with id=" + empid)) {
+                         $.ajax({
+                              url: "http://demo.itvidya.in/remove-emp.php",
+                              method: 'get',
+                              data: { empid: empid },
+                              success: function (res) {
+                                   loadEmps();
+                              }
+                         });
+                    }
+               });
+               function clear() {
+                    $("#errEmpid").text('');
+                    $('#empform').trigger("reset");
+               }
+          });
+
+     </script>
+
 </head>
 
 <body>
-     <div id="div1">
-         <img src="imgs/one.jpg"  alt="image" id="imgchange">
+     <h2 align=center>ADD EMPLOYEE</h2>
+     <h3 class="success" id="successMsg"></h3>
+     <form action="ddd" id="empform" align=center>
+          <input type="text" name="empid" placeholder="EMPLOYEE ID">
+          <span class="error" id="errEmpid"></span>
+          <br>
+          <input type="text" name="name" placeholder="EMPLOYEE NAME">
+          <br>
+          <input type="text" name="city" placeholder="EMPLOYEE CITY">
+          <br>
+          <input type="text" name="salary" placeholder="EMPLOYEE SALARY">
+          <br>
+          <br>
+          <br>
+          <button id="btn" type="button">ADD EMPLOYEE DETAILS</button>
+     </form>
+     <h3 align=center>EMPLOYEE LIST
+          <img src="spin.gif" alt="" id="spin">
+     </h3>
+     <div>
+          <p id="elist"></p>
      </div>
-     <div id="div2"> 
-         <button id="btn1">Pervious</button>
-
-          <button id="btn2">Next</button></div>
 </body>
-
 </html>
-<Script>
-     $(document).ready(function () {
-          var count = ["imgs/one.jpg","imgs/two.jpg","imgs/three.jpg","imgs/four.jpg"];
-          var lastIndex=count.length-1;
-          var i = 0;
-          $("#btn1").prop('disabled',true);
-
-          $('#btn1').click(function () { 
-              i--;             
-               
-                $('#imgchange').attr('src', count[i]);
-                if(i==0){
-                   $("#btn1").prop('disabled',true);
-               }
-
-               if(i<lastIndex && $("#btn2").prop('disabled')){
-                $("#btn2").prop('disabled',false);
-         
-               }
-          });
-          $('#btn2').click(function () {
-               i++;       
-               console.log(i);                         
-               $('#imgchange').attr('src', count[i]);              
-               if(i==lastIndex){                  
-                   $("#btn2").prop('disabled',true);
-               }
-               if(i>0 && $("#btn1").prop('disabled')){
-                $("#btn1").prop('disabled',false);
-         
-               }
-
-          });
-
-     });
-</Script>

@@ -20,8 +20,8 @@ export class AddIndianStateComponent implements OnInit {
 
   add(){
     this.stateService.addIndianState(this.code,this.name,this.capital);
-  //  this.router.navigateByUrl("/states");
-  this.router.navigate(['/capital',this.code]);
+    this.router.navigateByUrl("/states");
+  //this.router.navigate(['/capital',this.code]);
 
   }
 }
