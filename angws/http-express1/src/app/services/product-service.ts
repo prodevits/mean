@@ -6,12 +6,9 @@ import { Observable } from 'rxjs';
 
 @Injectable({providedIn:'root'})
 export class ProductService{
-private productsList:Product[]=[];
-
-onProductChange:EventEmitter<Product[]>=new EventEmitter<Product[]>();
-onProductEdit:EventEmitter<Product>=new EventEmitter<Product>();
 
 constructor(private httpClient:HttpClient){}
+
 baseUrl:string="http://localhost:3000/";
 urlProducts=this.baseUrl+"products";
 
@@ -38,11 +35,4 @@ removeProduct(id:number):Observable<{status:string,message:string}>{
   return this.httpClient.delete<{status:string,message:string}>(this.urlProducts+"/"+id);
 }
 
-isIdUsed(id:number){
-    return this.productsList.some((p)=>p.id==id);
-}
-
-editProduct(product){
-this.onProductEdit.emit(product);
-}
 }
