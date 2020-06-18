@@ -1,0 +1,11 @@
+.error{
+    color:#F00;
+    padding-left: 10px;
+}
+
+.errorBlock{
+   background: rgb(248, 152, 152);
+   padding: 10px;
+   border:2px solid rgb(44, 2, 2);
+   color:rgb(44, 2, 2);
+}

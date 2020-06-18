@@ -1,0 +1,10 @@
+<td>{{sno}}</td>
+<td>{{product.pcode}}</td>
+<td>{{product.name}}</td>
+<td class="text-right">{{product.price | currency:'INR'}}</td>
+<td class="text-right">{{product.qty | number:'1.2-2'}}</td>
+<td><button class="btn btn-danger" (click)="remove()"> <i class="fa fa-trash" aria-hidden="true"></i> 
+     Remove</button> &nbsp; 
+<a class="btn btn-warning" [routerLink]="['/new-product',product.id]"><i class="fa fa-pencil" aria-hidden="true"></i> 
+     Edit</a></td>
+

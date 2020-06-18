@@ -1,0 +1,16 @@
+
+<h3>Product List <a href="#" class="btn btn-info" routerLink="/new-product"><i class="fa fa-plus" aria-hidden="true"></i>
+</a> </h3>
+<hr>
+<table class="table table-bordered table-sm">
+    <tr class="bg-dark text-light">
+       <th>ID</th>
+       <th>Code</th>
+       <th>Name</th>
+       <th  class="text-right">Price</th>
+       <th class="text-right">Qty</th>
+       <th>Action</th>
+
+    </tr>
+    <tr *ngFor="let p of products; let srn=index" [sno]="srn+1"  [product]="p" class="app-show-product"></tr>
+</table>

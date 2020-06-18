@@ -1,0 +1,57 @@
+<h2>{{editMode?'Update Product':'New Product Entry'}}</h2>
+<br>
+
+<form action="" #pform="ngForm">
+  <input type="hidden" name="id"  ngModel>               
+        
+
+    <div class="errorBlock" *ngIf="error">
+            {{error}}
+    </div>
+       
+    <table>
+
+        <tr>
+            <td class="pr-3">
+                Product Code:
+            </td>
+            <td>
+                <span *ngIf="editMode" class="h2">{{pcode.value}}</span>
+                <input class="form-control" type="text" name="pcode" #pcode="ngModel" placeholder="Product Code" [hidden]="editMode" ngModel>               
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input class="form-control" type="text" name="name" placeholder="Product Name" ngModel>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Price:
+            </td>
+            <td>
+                <input class="form-control" type="text" name="price" placeholder="Price" ngModel>
+
+            </td>
+        </tr>
+        <tr>
+                <td>
+                    Qty:
+                </td>
+            <td>
+                <input class="form-control" type="text" name="qty" placeholder="Quantity" ngModel>
+
+            </td>
+        </tr>
+    </table>
+    <br>
+    <button  class="btn btn-success" (click)="add()" [hidden]="editMode"><i class="fa fa-floppy-o" aria-hidden="true"></i> Add Product</button>
+    <button class="btn btn-warning" (click)="update()" [hidden]="!editMode"><i class="fa fa-edit" aria-hidden="true"></i> Update Product</button>
+    &nbsp;
+    <a href="#" class="btn btn-danger" routerLink="/products" > <i class="fa fa-times" aria-hidden="true"></i>
+         Cancel</a>
+ </form>
