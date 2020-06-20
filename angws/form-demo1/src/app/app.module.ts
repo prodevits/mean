@@ -15,6 +15,7 @@ import { TdfCustomVal1Component } from './tdf-custom-val1/tdf-custom-val1.compon
 import { TextMatchValidator } from './validators/text-match-validator';
 import { MinValueValidator } from './validators/min-value.validator';
 import { RangeValidator } from './validators/range.validator';
+import { TdfFormGroupComponent } from './tdf-form-group/tdf-form-group.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RangeValidator } from './validators/range.validator';
     TdfCustomVal1Component,
     TextMatchValidator,
     MinValueValidator,
-    RangeValidator
+    RangeValidator,
+    TdfFormGroupComponent
   ],
   imports: [
     BrowserModule,

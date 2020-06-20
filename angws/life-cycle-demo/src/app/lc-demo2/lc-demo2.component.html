@@ -1,0 +1,13 @@
+<p>{{message}}</p>
+<input type="text" #msg>
+<button (click)='doSome(msg.value)'>
+Submit</button>
+<br><br>
+<button (click)="toggleChild()">
+{{showChild?'Hide':'Show'}}
+Child</button>
+<hr>
+<app-demo-child
+*ngIf="showChild"
+[text-msg]='message'>
+</app-demo-child>

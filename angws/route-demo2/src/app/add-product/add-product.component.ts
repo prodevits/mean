@@ -42,7 +42,7 @@ export class AddProductComponent implements OnInit {
       this.productService.updateProduct(p);
     //  this.editMode=false;
     //  this.clear();   
-      this.router.navigateByUrl("/products");
+      this.router.navigateByUrl("/products"); 
   }
 
 cancel(){

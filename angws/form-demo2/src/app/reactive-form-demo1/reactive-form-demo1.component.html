@@ -1,0 +1,38 @@
+
+<h2>Form Demo1</h2>
+<form [formGroup]='regForm' (submit)="onSubmit()">
+<table>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text" formControlName="name">
+        </td>
+    </tr>    
+    <tr>
+        <td>Email</td>
+        <td>
+            <input type="text" formControlName="email">
+        </td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>
+            <input type="text" formControlName="password">
+        </td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>
+            <input type="text" formControlName="city">
+        </td>
+    </tr>
+    <tr>
+        <td>Salary</td>
+        <td>
+            <input type="text" formControlName="salary">
+        </td>
+    </tr>
+</table>
+<button>Submit</button>
+<button type="button" (click)="clear()">Clear</button>
+</form>

@@ -21,8 +21,5 @@ export class ShowProductComponent implements OnInit {
     this.router.navigate(["/remove-product",this.product.id]);
   }
 
-  edit()
-  {
-    this.productService.editProduct(this.product);
-  }
+ 
 }
