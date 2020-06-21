@@ -3,13 +3,13 @@ class B{
     y:number;  // non static or instance variable
 
     show():void{
-        console.log("x="+A.x);        
+        console.log("x="+B.x);        
         console.log("y="+this.y);        
     }
 
     static display():void{
-        console.log("x="+A.x);        
-     //   console.log("y="+this.y);  //Error 
+        console.log("x="+B.x);        
+     //console.log("y="+this.y);  //Error 
 
     }
 }

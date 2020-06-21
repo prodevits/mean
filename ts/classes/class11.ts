@@ -16,8 +16,7 @@ class Person{
         if(age>0)
             this._age=age;
         else
-        console.log("Error : Invalid Age");
-        
+        console.log("Error : Invalid Age");        
     }
     get age(){
         return this._age;

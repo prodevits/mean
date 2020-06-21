@@ -1,4 +1,5 @@
 class Student{
+  
     constructor(public rollno : number,public name : string,public course : string,public marks : number){}
     
     show():void{
