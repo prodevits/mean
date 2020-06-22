@@ -24,7 +24,10 @@ export class ReactiveFormDemo1Component implements OnInit {
 
   onSubmit(){
     console.log(this.regForm.value);    
-    console.log(this.regForm.value.email);    
+    console.log(this.regForm.value.email); 
+    console.log(this.regForm.controls.email.value);
+    console.log(this.regForm.get("email").value);   
+       
   }
 
   clear(){

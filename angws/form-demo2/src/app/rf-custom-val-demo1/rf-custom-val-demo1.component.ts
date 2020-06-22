@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { range } from 'validators/range.validator';
-import { AppValidators } from 'validators/app.validators';
+import { range } from '../validators/range.validator';
+import { AppValidators } from '../validators/app.validators';
 
 
 @Component({

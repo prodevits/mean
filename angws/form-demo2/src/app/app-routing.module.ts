@@ -5,6 +5,7 @@ import { ReactiveFormDemo2Component } from './reactive-form-demo2/reactive-form-
 import { RfValDemo1Component } from './rf-val-demo1/rf-val-demo1.component';
 import { RfValDemo2Component } from './rf-val-demo2/rf-val-demo2.component';
 import { RfCustomValDemo1Component } from './rf-custom-val-demo1/rf-custom-val-demo1.component';
+import { RfArray1Component } from './rf-array1/rf-array1.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'rfval1',component:RfValDemo1Component},
   {path:'rfval2',component:RfValDemo2Component},
   {path:'rfcval1',component:RfCustomValDemo1Component},
+  {path:'rfArray1',component:RfArray1Component},
   {path:'',redirectTo:'rfdemo1',pathMatch:'full'},
   
 ];
