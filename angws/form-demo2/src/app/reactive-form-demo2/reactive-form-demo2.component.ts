@@ -28,7 +28,7 @@ export class ReactiveFormDemo2Component implements OnInit {
     console.log(this.regForm.value);    
     console.log(this.regForm.value.email);    
     console.log(this.regForm.value.address);
-    
+    console.log(this.regForm.value.address.city);
   }
 
   clear(){

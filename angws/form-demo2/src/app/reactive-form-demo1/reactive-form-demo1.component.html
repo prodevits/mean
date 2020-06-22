@@ -17,7 +17,7 @@
     <tr>
         <td>Password</td>
         <td>
-            <input type="text" formControlName="password">
+            <input type="password" formControlName="password">
         </td>
     </tr>
     <tr>
@@ -33,6 +33,11 @@
         </td>
     </tr>
 </table>
-<button>Submit</button>
+<br>
+<button>Submit</button> &nbsp;
 <button type="button" (click)="clear()">Clear</button>
+&nbsp;
+<button type="button" (click)="setData()">Set Data</button>
+&nbsp;
+<button type="button" (click)="patchData()">Patch Data</button>
 </form>

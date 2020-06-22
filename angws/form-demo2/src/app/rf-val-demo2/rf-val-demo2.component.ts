@@ -14,7 +14,7 @@ export class RfValDemo2Component implements OnInit {
   ngOnInit() {
     this.regForm=new FormGroup({
       gender:new FormControl(),
-      name: new FormControl('',Validators.required),
+      name: new FormControl('',[Validators.required]),
       email: new FormControl('',[Validators.required,Validators.email]), 
       salary:new FormControl(),
       nri:new FormControl(false),

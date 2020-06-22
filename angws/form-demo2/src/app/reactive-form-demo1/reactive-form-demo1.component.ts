@@ -30,4 +30,14 @@ export class ReactiveFormDemo1Component implements OnInit {
   clear(){
     this.regForm.reset();
   }
+
+  setData(){
+    const obj={name:'Aman',email:'aman@gmail.com',password:'aaaa',city:'Indore',salary:23400};
+    this.regForm.setValue(obj);
+  }
+
+  patchData(){
+    const obj={email:'aman@gmail.com',city:'Indore',salary:23400};
+    this.regForm.patchValue(obj);
+  }
 }
