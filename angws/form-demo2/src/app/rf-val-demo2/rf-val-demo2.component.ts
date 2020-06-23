@@ -31,7 +31,7 @@ export class RfValDemo2Component implements OnInit {
   }
 
   get rfac(){
-    return (this.regForm.controls .address as FormGroup).controls;
+    return (this.regForm.controls.address as FormGroup).controls;
   }
   
   onSubmit(){

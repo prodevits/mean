@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { range } from '../validators/range.validator';
 import { AppValidators } from '../validators/app.validators';
+import { checkPass } from '../validators/check_pass.validator';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class RfCustomValDemo1Component implements OnInit {
       age: new FormControl('',[Validators.min(18)]),    
       email: new FormControl('',[Validators.required,Validators.email]), 
       salary:new FormControl('',range(3000,50000)),
-      password: new FormControl('',Validators.required),
+      password: new FormControl('',[Validators.required,checkPass]),
       cpassword: new FormControl(''),   
       
     },AppValidators.textmatch('password','cpassword'));

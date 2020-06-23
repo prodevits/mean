@@ -57,8 +57,13 @@
                     <td>Password</td>
                     <td>
                         <input type="text" formControlName="password" placeholder="Your Age">
-                        <div *ngIf="rfc.password.touched && rfc.password.errors" class="text-danger">
-                           Password Required
+                        <div *ngIf="rfc.password.touched && rfc.password.errors">
+                            <div *ngIf="rfc.password.errors.required" class="text-danger">
+                                Password Required
+                             </div>
+                             <div *ngIf="rfc.password.errors.checkPass" class="text-danger">
+                                 {{rfc.password.errors.checkPass.message}}
+                              </div>
                         </div>
                     </td>
                 </tr>

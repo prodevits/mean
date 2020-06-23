@@ -23,8 +23,6 @@ static fucase(control: AbstractControl):ValidationErrors
     return {'fucase':{'message':'First Char must be in Uppercase'}};
     }
     return null;
-    }
-
-    
+    }  
 
 }

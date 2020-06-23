@@ -29,14 +29,15 @@
     <tr>
         <td>Skills</td>
         <td>
-                   <button type="button" (click)="addSkill()">Add</button>
+                   <button type="button" (click)="addSkill()">{{skillsArray.length==0?'Add':'Add More'}}</button>
         </td>        
     </tr>
-    <tr *ngFor="let s of skills.controls; let i=index">
+    <tr *ngFor="let s of skillsArray.controls; let i=index">
            <td>{{i+1}}</td>
-           <td> <input type="text" [formControl]="s"></td>
+           <td> <input type="text" [formControl]="s">
+        <button (click)="removeSkill(i)">X</button>
+        </td>
     </tr>
-
 </table>
 <br>
 <button>Submit</button> &nbsp;

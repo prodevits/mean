@@ -1,0 +1,44 @@
+<h2>Form Demo1</h2>
+<form [formGroup]='regForm' (submit)="onSubmit()">
+<table>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text" formControlName="name">
+        </td>
+    </tr>    
+    <tr>
+        <td>Email</td>
+        <td>
+            <input type="text" formControlName="email">
+        </td>
+    </tr>
+   
+    <tr>
+        <td>City</td>
+        <td>
+            <input type="text" formControlName="city">
+        </td>
+    </tr>
+    <tr>
+        <td>Salary</td>
+        <td>
+            <input type="text" formControlName="salary">
+        </td>
+    </tr>    
+    </table>
+    <br>
+<h4>Education Details <button type="button" (click)="addEdu()">+</button></h4>
+<table>
+        <tr *ngFor="let edu of educationArray.controls">
+              <div [formGroup]="edu">
+                    <td><input type="text" formControlName="title" placeholder="Title"></td>
+                <td><input type="text" formControlName="year" placeholder="Year"></td>
+                <td><input type="text" formControlName="result" placeholder="Result"></td>        
+ 
+              </div>       </tr>
+    </table>
+<br>
+<button>Submit</button> 
+
+</form>
