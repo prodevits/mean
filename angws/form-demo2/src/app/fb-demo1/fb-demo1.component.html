@@ -1,0 +1,156 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Form Demo with Custom Validation</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]='regForm' (submit)="onSubmit()">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" formControlName="gender" value="male"> Male
+
+                        <input type="radio" formControlName="gender" value="female"> Female </td>
+                </tr>
+                <tr>
+                    <td>Name <span class="text-danger">*</span></td>
+                    <td>
+                        <input type="text" formControlName="name" placeholder="Your Name">
+                        <div *ngIf="rfc.name.touched && rfc.name.errors" class="text-danger">
+                            <div *ngIf="rfc.name.errors.required">Name Required</div>
+                            <div *ngIf="rfc.name.errors.fucase">{{rfc.name.errors.fucase.message}}</div>
+                            <div *ngIf="rfc.name.errors.minlength">Minimum {{rfc.name.errors.minlength.requiredLength}}
+                                Char required</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Age </td>
+                    <td>
+                        <input type="text" formControlName="age" placeholder="Your Age">
+                        <div *ngIf="rfc.age.touched && rfc.age.errors" class="text-danger">
+                            Minimum Age must be {{rfc.age.errors.min.min}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email <span class="text-danger">*</span> </td>
+                    <td> <input type="text" formControlName="email" placeholder="Email ID">
+                        <div *ngIf="rfc.email.errors && rfc.email.touched">
+                            <div *ngIf="rfc.email.errors.required" class="text-danger">Email Required</div>
+                            <div *ngIf="rfc.email.errors.email" class="text-danger">Invalid Email</div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Salary</td>
+                    <td>
+                        <input type="text" formControlName="salary" placeholder="salary">
+                        <div *ngIf="rfc.salary.errors" class="text-danger">Salary must be in range
+                            {{rfc.salary.errors.range.min}} and {{rfc.salary.errors.range.max}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <input type="text" formControlName="password" placeholder="password">
+                        <div *ngIf="rfc.password.touched && rfc.password.errors">
+                            <div *ngIf="rfc.password.errors.required" class="text-danger">
+                                Password Required
+                             </div>
+                             <div *ngIf="rfc.password.errors.checkPass" class="text-danger">
+                                 {{rfc.password.errors.checkPass.message}}
+                              </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Confirm Password </td>
+                    <td>
+                        <input type="text" formControlName="cpassword" placeholder="confirm password">
+                        <div *ngIf="(rfc.password.touched || rfc.cpassword.touched) && regForm.errors && regForm.errors.textmatch" class="text-danger">
+                                Not Matched with Password
+                             </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <div formGroupName="address">                   
+                            <input type="text" formControlName="street" placeholder="street">
+                            <br>
+                            <input type="text" formControlName="city" placeholder="city">
+                            <br>
+                            <input type="text" formControlName="pincode" placeholder="pincode">                          
+            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Skills</td>
+                    <td>
+                               <button type="button" (click)="addSkill()">{{skills.length==0?'Add':'Add More'}}</button>
+                    </td>        
+                </tr>
+                <tr *ngFor="let s of skills.controls; let i=index">
+                       <td>{{i+1}}</td>
+                       <td> <input type="text" [formControl]="s">
+                    <button (click)="removeSkill(i)">X</button>
+                    </td>
+                </tr>
+            </table>
+
+            <h4>Education Details <button type="button" (click)="addEdu()">+</button></h4>
+            <table>
+                    <tr *ngFor="let edu of educations.controls">
+                          <div [formGroup]="edu">
+                                <td><input type="text" formControlName="title" placeholder="Title"></td>
+                            <td><input type="text" formControlName="year" placeholder="Year" size="10"></td>
+                            <td><input type="text" formControlName="result" placeholder="Result" size="10"></td>        
+             
+                          </div>       </tr>
+                </table>
+           
+ 
+            <br>
+            
+            <button [disabled]="regForm.invalid">Submit</button>
+            <button type="button" (click)="clear()">Clear</button>
+        </form>
+
+    </div>
+    <div class="col-md-6 ">
+        <table class="table table-bordered">
+            <tr>
+                <td>regForm.value</td>
+                <td>{{regForm.value | json}}</td>
+            </tr>
+            <tr>
+                <td>regForm.touched</td>
+                <td>{{regForm.touched}}</td>
+            </tr>
+            <tr>
+                <td>regForm.pristine</td>
+                <td>{{regForm.pristine}}</td>
+            </tr>
+            <tr>
+                <td>regForm.dirty</td>
+                <td>{{regForm.dirty}}</td>
+            </tr>
+            <tr>
+                <td>regForm.valid</td>
+                <td>{{regForm.valid}}</td>
+            </tr>
+            <tr>
+                <td>regForm.invalid</td>
+                <td>{{regForm.invalid}}</td>
+            </tr>
+            <tr>
+                    <td>regForm.errors</td>
+                    <td>{{regForm.errors | json}}</td>
+                </tr>                
+        </table>
+    </div>
+</div>

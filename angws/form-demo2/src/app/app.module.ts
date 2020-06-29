@@ -10,6 +10,7 @@ import { RfValDemo2Component } from './rf-val-demo2/rf-val-demo2.component';
 import { RfCustomValDemo1Component } from './rf-custom-val-demo1/rf-custom-val-demo1.component';
 import { RfArray1Component } from './rf-array1/rf-array1.component';
 import { RfArray2Component } from './rf-array2/rf-array2.component';
+import { FbDemo1Component } from './fb-demo1/fb-demo1.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RfArray2Component } from './rf-array2/rf-array2.component';
     RfValDemo2Component,
     RfCustomValDemo1Component,
     RfArray1Component,
-    RfArray2Component
+    RfArray2Component,
+    FbDemo1Component
   ],
   imports: [
     BrowserModule,

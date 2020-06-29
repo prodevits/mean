@@ -29,12 +29,14 @@ export class RfArray1Component implements OnInit {
   addSkill(){
     this.skillsArray.push(new FormControl(''));
   }
+  removeSkill(index:number){
+    this.skillsArray.removeAt(index);
+  }
+  
   onSubmit(){
     console.log(this.regForm.value);    
     console.log(this.regForm.value.email);    
   }
 
-  removeSkill(index:number){
-    this.skillsArray.removeAt(index);
-  }
+
 }
