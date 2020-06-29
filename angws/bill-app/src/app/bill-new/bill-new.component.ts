@@ -58,7 +58,7 @@ export class BillNewComponent implements OnInit {
   onSubmit() {
     console.log(this.billForm.value);
     
-    let bill: Bill = new Bill(0, this.dateToString(this.billForm.get('billDate').value), this.billForm.get('customerName').value, this.billForm.get('contact').value)
+    let bill: Bill = new Bill( this.dateToString(this.billForm.get('billDate').value), this.billForm.get('customerName').value, this.billForm.get('contact').value)
     this.items.controls.forEach((item, index) => {
       const i = new Item(index + 1, item.get("name").value, item.get('price').value, item.get('qty').value);
       bill.addItem(i);
@@ -69,18 +69,15 @@ export class BillNewComponent implements OnInit {
 
     this.billHttpService.saveBill(bill).subscribe(response => {
       if(response.status=='SUCCESS'){
-        const billNo=response.message.billno;
-        bill.billno=billNo;
+        console.log(response);        
+        bill.billno=response.message.billno
         this.billGenerated=true;
         this.bill=bill;
       }else{
         this.error=response.message;
       }
     })
-
-
-    this.billGenerated=true;
-    this.bill=bill;
+ 
   }
 
   dateToString(date: Date) {
