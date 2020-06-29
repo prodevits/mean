@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { BillNewComponent } from './bill-new/bill-new.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { SearchBillComponent } from './search-bill/search-bill.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BillNewComponent
+    BillNewComponent,
+    SearchBillComponent
   ],
   imports: [
     BrowserModule,

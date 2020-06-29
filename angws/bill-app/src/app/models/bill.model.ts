@@ -5,6 +5,7 @@ export class Bill {
     billAmount:number;
 
     constructor(public billno: number,public billDate:string, public customerName: string, public contact: string) { }
+    
     addItem(item:Item){
         this.items.push(item);
     }

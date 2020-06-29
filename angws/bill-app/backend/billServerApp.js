@@ -35,7 +35,7 @@ app.post("/bill",(req,res)=>{
     const q2="insert into bill_items(sno,name,price,qty,bill_no) values ?";
     con.query(q1,d1,(err,result)=>{
         if (err){
-            res.send({message:'FAIL'});
+            res.send({status:'FAIL',message:err.sqlMessage});
         }else{
             const billNo=result.insertId;
             const d2=[];
@@ -44,15 +44,13 @@ app.post("/bill",(req,res)=>{
                 }
                 con.query(q2,[d2],(err,result)=>{
                     if(err){
-                        res.send({message:'FAIL'});
+                        res.send({status:'FAIL',message:err.sqlMessage});
                     }
                     console.log(result.affectedRows);
-                    res.send({message:"done"});
+                    res.send({status:"SUCCESS",message:{billno:billNo}});
                 });
-            }
-        
-    })
-  
+            }        
+    })  
 });
 
 

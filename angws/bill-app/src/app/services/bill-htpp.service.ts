@@ -10,9 +10,9 @@ export class BillHttpService{
 
     constructor(private httpClient:HttpClient){}
 
-    saveBill(bill:Bill):Observable<{message:string}>{
+    saveBill(bill:Bill):Observable<{status:string,message:any}>{
         console.log(this.postBillUrl);
         
-        return this.httpClient.post<{message:string}>(this.postBillUrl,bill);
+        return this.httpClient.post<{status:string,message:any}>(this.postBillUrl,bill);
     }
 }
