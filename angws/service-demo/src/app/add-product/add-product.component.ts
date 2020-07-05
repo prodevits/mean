@@ -16,6 +16,8 @@ export class AddProductComponent implements OnInit {
   editMode:boolean=false;
 
   constructor(private productService:ProductService) { }
+
+
   ngOnInit() {
     this.productService.onProductEdit.subscribe((p:Product)=>{
       this.id=p.id;
@@ -31,7 +33,6 @@ export class AddProductComponent implements OnInit {
     }else{
       const p={id:this.id,name:this.name,price:this.price}; 
       this.productService.addProduct(p);
-
       this.clear();
     }
   }
