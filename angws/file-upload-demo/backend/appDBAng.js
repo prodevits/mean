@@ -53,31 +53,24 @@ var storage = multer.diskStorage({
 
 let multerObject = multer({ storage: storage });
 
-app.post("/doReg", multerObject.single('photo'), (req, res) => {
+app.post("/users", multerObject.single('photo'), (req, res) => {
     const data = req.body;
-    const name=data.nm;
+    const name=data.name;
     const age=data.age;
     console.log("Name=" + name);
     console.log("Age=" + age);
     const file = req.file;
-    // const uploadedFn = file.originalname;
     const savedFn = file.filename;
-    // const contentType = file.mimetype;
-    // const size = file.size;
-
-    // console.log("Uploaded File Name=" + uploadedFn);
-    // console.log("Saved File Name=" + savedFn);
-    // console.log("Type=" + contentType);
-    // console.log("Size=" + size);
-
     const con=dbConnect();
     con.query("insert into reg_data(name,age,photo) values(?,?,?)",[name,age,savedFn],(err,response)=>{
-        let r='<a href="showAll">Show All</a> | <a href="reg.html">New Registartion</a><br></hr>';
+        let r={};
         if(err){
-            r=r+"Registration Fail (" +err.sqlMessage+")";
+            r.status="FAIL";
+            r.message="Registration Fail (" +err.sqlMessage+")";
         }
         else{
-            r=r+"Registered with Id="+response.insertId;
+            r.status="SUCCESS";
+            r.message="Registered with Id="+response.insertId;
         }
         dbClose(con);
         res.send(r);
@@ -86,22 +79,14 @@ app.post("/doReg", multerObject.single('photo'), (req, res) => {
 });
 
 
-app.get("/showAll", (req, res) => {
+app.get("/users", (req, res) => {
 
     const con=dbConnect();
     con.query("select * from reg_data order by id desc",(err,response)=>{
-    let r='<a href="reg.html">New Registration</a><hr>';
-       if(response && response.length>0){
-           r=r+"<table border='1' cellspacing='0' cellpadding='5' >";
-           for(let row of response){
-            r=r+`<tr><td width='200'>${row.name}</td><td width='60'>${row.age}</td><td><img src='imgs/${row.photo}' height='50' ></td>`;
-           }
-           r=r+"</table>";
-       }else{
-        r=r+"No Data Found";
-       }
-        dbClose(con);
-        res.send(r);
+    let users=[...response];
+    users.map((u)=>u.photo="imgs/"+u.photo);
+     dbClose(con);
+     res.send(users);
     });
 
 });

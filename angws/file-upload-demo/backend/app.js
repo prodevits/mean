@@ -4,6 +4,7 @@ let multer=require('multer');
 let app=express();
 
 app.use(express.static(path.join(__dirname,"public")));
+
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");  
     res.setHeader("Access-Control-Allow-Headers",    "Origin, X-Requested-With, Content-Type, Accept"  );  
@@ -15,10 +16,10 @@ app.use((req, res, next) => {
 
 var storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-        cb(null,path.join(__dirname,'public','imgs'));
+        cb(null,path.join(__dirname,'public','myfiles'));
     },
     filename:(req,file,cb)=>{
-        const fileName = file.originalname.toLowerCase().split(' ').join('-'); 	
+        const fileName =Date.now()+ file.originalname.toLowerCase().split(' ').join('-'); 	
         cb(null, fileName) ; 
     }  
 });

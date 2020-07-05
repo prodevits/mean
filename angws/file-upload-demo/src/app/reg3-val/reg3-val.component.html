@@ -1,0 +1,63 @@
+
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <form [formGroup]="regForm" (submit)="onSubmit()">
+            <div class="card border border-primary">
+                <div class="card-header bg-primary text-light">
+                        <h3 class="text-center">Registration</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="text" class="form-control" formControlName="name">
+                                <span class="text-danger"
+                                    *ngIf="regForm.controls.name.touched && regForm.controls.name.invalid">Name
+                                    Required</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Age</label>
+                                <input type="text" class="form-control" formControlName="age">
+                                <span class="text-danger"
+                                    *ngIf="regForm.controls.age.touched && regForm.controls.name.invalid">Name
+                                    Required</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="card border border-info">
+                                    <img [hidden]="imagePreview" src="assets/user.png" class="card-img-top" height="120"
+                                        alt="">
+                                    <img [hidden]="!imagePreview" [src]="imagePreview" class="card-img-top "
+                                        height="120" alt="">
+
+                                    <div *ngIf="regForm.controls.photo.invalid" class="alert alert-danger fixed-bottom" style="position:absolute">
+                                        Invalid File Format
+                                    </div>
+
+                                </div>
+
+                                <div class="card border-0 mt-1">
+                                    <button type="button" class="btn btn-info" (click)="image.click()">
+                                        {{imagePreview?'Change':'Select Photo'}}
+                                    </button>
+                                </div>
+
+                                <input type="file" #image class="form-control" hidden="true" (change)="preview()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="form-group text-right">
+                        <button class="btn btn-primary" [disabled]="regForm.invalid">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
