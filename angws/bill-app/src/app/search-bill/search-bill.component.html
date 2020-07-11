@@ -1,1 +1,74 @@
-<p>search-bill works!</p>
+<div class="row mt-3 justify-content-center">
+    <label for="" class="col-md-2 col-form-label text-right">Enter Bill No :</label> 
+    <div class="col-md-3">
+        <input type="text" class="form-control" #billNo>
+    </div>
+    <div class="col-md-2">
+        <button (click)="searchBill(billNo.value)" class="btn btn-success">Search</button>
+    </div>
+</div>
+<div class="row mt-3">
+        <div class="col">
+                <hr class="mt-1 mb-3 border border-dark">
+        </div>
+</div>
+<div class="row mt-3">    
+    <div class="col-md-8 m-auto" *ngIf="searchStatus=='FOUND'">           
+  
+        <div class="card border border-primary myDivToPrint">
+            <div class="card-header bg-primary text-light">
+                <h2 class="text-center">
+                    Bill Details
+                </h2>
+            </div>
+            <div class="card-body text-dark ">    
+                <div class="form-row">
+                        <label for="" class="col-md-6"> <span class="font-weight-bold">Bill No : </span> <span>{{bill.billno}}</span>  </label>
+                        <label for="" class="col-md-6"><span class="font-weight-bold"> Bill Date : </span>  <span>{{bill.billDate | date:'dd/MM/yyyy hh:mm:ss'}}</span></label>
+                </div>
+
+                <div class="form-row">
+                  
+                        <label for="" class="col-md-6"><span class="font-weight-bold">Customer Name : </span>  <span>{{bill.customerName}} </span> </label>
+                        <label for="" class="col-md-6"><span class="font-weight-bold">Contact No : </span> <span>{{bill.contact}} </span></label>
+                
+                    
+                </div>    
+            
+                <table class="table table-sm mt-3">
+                    <tr class="table-active">
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th class="text-right">Price</th>
+                        <th class="text-right">Qty</th>
+                        <th class="text-right">Amount</th>
+                    </tr>
+                    <tr *ngFor="let item of bill.items">
+                        <td>{{item.itemNo}}</td>
+                        <td>{{item.name}}</td>
+                        <td class="text-right">{{item.price | number:'1.2-2'}}</td>
+                        <td class="text-right">{{item.qty | number:'1.2-2'}}</td>
+                        <td class="text-right">{{item.amount | number:'1.2-2'}}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" class="text-right font-weight-bold">Total Bill Amount : </th>
+                        <th class="text-right font-weight-bold">{{bill.billAmount | number:'1.2-2'}}</th>
+                    </tr>
+                </table>                        
+            </div>   
+        </div>
+        <div class="row mt-2">
+           <div class="col-3 m-auto">
+                <button class="btn btn-info btn-block" (click)="printBill()">
+                        <i class="fa fa-print" aria-hidden="true"></i>
+                    Print Bill</button>
+           </div>    
+        </div>
+</div>
+
+<div class="col-md-8 m-auto" *ngIf="searchStatus=='NOTFOUND'">  
+        <div class="alert alert-danger">
+            No Data Found
+        </div>
+    </div>
+</div>

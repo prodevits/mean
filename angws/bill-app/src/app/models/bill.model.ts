@@ -1,11 +1,12 @@
 import { Item } from './item.model';
 
 export class Bill {
+    
     billno:number;
     items:Item[]=[];
     billAmount:number;
 
-    constructor(public billDate:string, public customerName: string, public contact: string) { }
+    constructor(public billDate?:string, public customerName?: string, public contact?: string) { }
     
     addItem(item:Item){
         this.items.push(item);

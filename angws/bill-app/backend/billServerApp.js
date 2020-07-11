@@ -53,7 +53,43 @@ app.post("/bill",(req,res)=>{
     })  
 });
 
+app.get("/bill/:billNo",(req,res)=>{
+    const billNo=req.params['billNo'];
+    con.query("select * from bill_master where bill_no=?",[billNo],(err,response)=>{
+        if(err){
+            res.send({status:'FAIL',message:err.sqlMessage});
+        }
 
+        if(response && response.length>0){
+            const data=response[0];
+            const bill={};
+            bill.billno=data.bill_no;
+            bill.customerName=data.cname;
+            bill.billDate=data.bill_date;
+            bill.contact=data.mobile_no;
+            bill.billAmount=data.bill_amount;
+            con.query("select * from bill_items where bill_no=?",[billNo],(err,response)=>{
+                if(response && response.length>0){
+                    const items=[];
+                    for(let row of response){
+                        const item={};
+                        item.itemNo=row.sno;
+                        item.name=row.name;
+                        item.price=row.price;
+                        item.qty=row.qty;
+                        items.push(item);
+                    }
+                    bill.items=items;                 
+                    res.send({status:'SUCCESS',message:'data found',data:bill});
+                }
+            })
+        }else{
+            res.send({status:'FAIL',message:'No Data Found'}); 
+        }
+       
+    });
+   
+});
 
 const server=app.listen(3000, function () {
     console.log('listening on 3000');

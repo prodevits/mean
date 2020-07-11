@@ -13,6 +13,7 @@ import { formatDate } from '@angular/common';
 export class BillNewComponent implements OnInit {
   billForm: FormGroup;
   items: FormArray;
+  
   error=undefined;
   billGenerated=false;
   bill=undefined;
@@ -22,7 +23,7 @@ export class BillNewComponent implements OnInit {
   ngOnInit() {
     this.billGenerated=false;
     this.bill=undefined;
-
+    this.error=undefined;
     this.items = new FormArray([]);
 
     this.billForm = new FormGroup({
@@ -82,5 +83,10 @@ export class BillNewComponent implements OnInit {
 
   dateToString(date: Date) {
     return formatDate(date, 'yyyy-MM-dd HH:mm:ss', 'en-US');
+  }
+
+  printBill(){
+    window.print();
+    this.ngOnInit();
   }
 }
