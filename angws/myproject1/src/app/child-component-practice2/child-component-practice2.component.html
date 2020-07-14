@@ -1,9 +1,12 @@
 <h2>Person Data Management</h2>    
     
-    <app-add-person (personAdded)='addPerson($event)'></app-add-person>
-        <div *ngIf='persons'>              
+    <app-add-person (personAdded)='addPerson($event)' (personUpdated)='updatePerson($event)' [editablePerson]='personToEdit'></app-add-person>
+      
+    
+    
+    <div *ngIf='persons'>              
             <table width="600" border="1">
-                <tr class='app-show-person' *ngFor="let p of persons, let c=index"   [person]='p' (onPersonRemove)='removePerson($event)' ></tr>
+                <tr class='app-show-person' *ngFor="let p of persons, let c=index"   [person]='p' (onPersonRemove)='removePerson($event)'   (onPersonEdit)='editPerson($event)' ></tr>
             </table>          
     </div>
 

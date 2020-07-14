@@ -1,6 +1,6 @@
 <h2>Pipe Demo</h2>
 
-<p>{{message}}</p>
+<!-- <p>{{message}}</p>
 <p>{{message | slice:8:17}}</p>
 <p>{{message | uppercase}}</p>
 <p>{{message | lowercase}}</p>
@@ -37,7 +37,7 @@ Amount : {{amount| currency:'INR':'symbol':'5.2-3'}}
 Amount : {{amount| currency:'Rs.':'symbol'}}
 <br>
 Amount : {{amount| currency:'Rs.':'symbol':'5.2-3'}}
-<br>
+<br> -->
 <hr>
 <table border="1" width="1000">
         <tr>
@@ -58,7 +58,7 @@ Amount : {{amount| currency:'Rs.':'symbol':'5.2-3'}}
         <td>{{e.empid}}</td>
         <td>{{e.gender}}</td>
         <td>{{e.name | uppercase |nameTitle :e.gender }}</td>
-        <td>{{e.city | uppercase}}</td>       
+        <td>{{e.city | uppercase | myPipe}}</td>       
         <td>{{e.dob | date:'dd/MM/yyyy'}}</td>
         <td>{{e.experience}}</td>
         <td>{{e.experience | exlevel}}</td>
@@ -67,3 +67,10 @@ Amount : {{amount| currency:'Rs.':'symbol':'5.2-3'}}
         <td>{{e.salary | bonus : e.experience : e.gender |currency:'INR' }}</td>
     </tr>
     </table>
+
+<!-- 
+    {{uname |nameTitle:gender|hello}}
+
+    <br>
+
+    {{sal| grade}} -->

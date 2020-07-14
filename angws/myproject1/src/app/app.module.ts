@@ -45,6 +45,7 @@ import { ServiceDemo1Component } from './service-demo1/service-demo1.component';
 import { ShowProductComponent } from './service-demo1/show-product/show-product.component';
 import { AddProductComponent } from './service-demo1/add-product/add-product.component';
 import { ServiceDemo2Component } from './service-demo2/service-demo2.component';
+import { MyPipePipe } from './pipes/my-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { ServiceDemo2Component } from './service-demo2/service-demo2.component';
     ServiceDemo1Component,
     ShowProductComponent,
     AddProductComponent,
-    ServiceDemo2Component
+    ServiceDemo2Component,
+    MyPipePipe
   ],
   imports: [
     BrowserModule,

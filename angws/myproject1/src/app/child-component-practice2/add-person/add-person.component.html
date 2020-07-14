@@ -25,5 +25,8 @@
 
 
 <p>
-    <button (click)='onPersonAdd()' [hidden]='editMode'>Add</button>
+    <button (click)='add()' [hidden]='editMode'>Add</button>
+    <button (click)='update()' [hidden]='!editMode'>Update</button>
+    <button (click)='cancel()' [hidden]='!editMode'>Cancel</button>
+   
 </p>

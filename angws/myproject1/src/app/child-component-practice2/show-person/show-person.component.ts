@@ -8,6 +8,8 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class ShowPersonComponent implements OnInit {
 
   @Output() onPersonRemove=new EventEmitter<number>();
+  @Output() onPersonEdit=new EventEmitter<number>();
+
 
   @Input() person:{id:number, name: string, age: number, salary: number, dept: string };
 
@@ -21,4 +23,7 @@ export class ShowPersonComponent implements OnInit {
   }
 
 
+ edit(){  
+      this.onPersonEdit.emit(this.person.id);
+  }
 }

@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipe-demos.component.css']
 })
 export class PipeDemosComponent implements OnInit {
+  uname="Aman Sharma";
+  gender="female";
+  sal=14000;
+
+  
+  
+  
   emps=[
     {empid:101,name:'Raman',gender:'male',city:'indore',salary:27000,dob:'1989-11-23',experience:12},
     {empid:106,name:'Reena',gender:'female',city:'pune',salary:22500,dob:'1994-03-12',experience:5},
