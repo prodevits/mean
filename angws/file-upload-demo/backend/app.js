@@ -5,21 +5,12 @@ let app=express();
 
 app.use(express.static(path.join(__dirname,"public")));
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");  
-    res.setHeader("Access-Control-Allow-Headers",    "Origin, X-Requested-With, Content-Type, Accept"  );  
-    res.setHeader("Access-Control-Allow-Methods",    "GET, POST, PATCH, PUT, DELETE, OPTIONS"  );  
-    next();
-  });
-
-
-
 var storage=multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,path.join(__dirname,'public','myfiles'));
     },
     filename:(req,file,cb)=>{
-        const fileName =Date.now()+ file.originalname.toLowerCase().split(' ').join('-'); 	
+        const fileName =Date.now()+"_"+ file.originalname.toLowerCase().split(' ').join('-'); 	
         cb(null, fileName) ; 
     }  
 });

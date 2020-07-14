@@ -14,8 +14,7 @@ constructor(private httpClient:HttpClient){}
         const form=new FormData();
         form.append("name",regData.name);
         form.append("age",regData.age);
-        form.append("photo",regData.photo); 
-        
+        form.append("photo",regData.photo);         
         return this.httpClient.post<string>(this.url,form);
       
     }

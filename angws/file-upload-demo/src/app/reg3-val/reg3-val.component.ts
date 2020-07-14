@@ -39,7 +39,6 @@ export class Reg3ValComponent implements OnInit {
     }else{
       this.imagePreview = undefined;
     }
-
  
   }
 
