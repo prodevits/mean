@@ -6,7 +6,9 @@ export class AuthInterceptor implements HttpInterceptor{
     constructor(private authService:AuthService){}
     
     intercept(request:HttpRequest<any>,next:HttpHandler){
+
         console.log("intercepting..");  
+        
         const authToken = this.authService.getToken();
         console.log(authToken);        
         if(authToken)
