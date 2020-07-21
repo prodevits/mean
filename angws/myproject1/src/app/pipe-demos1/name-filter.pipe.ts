@@ -7,13 +7,11 @@ export class NameFilterPipe implements PipeTransform {
 
   transform(emps:any[],name:string): any {
     if(name){
-      name=name.toLocaleLowerCase();
+      name=name.toLowerCase();
       const nemps=emps.filter((e)=> e.name.toLowerCase().indexOf(name)>=0);
       return nemps;
     }
-
-    return emps;
-   
+    return emps;   
   }
 
 }

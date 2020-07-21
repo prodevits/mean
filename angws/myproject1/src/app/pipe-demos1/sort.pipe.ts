@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(emps: any[],fieldName:string): any {
+  transform(emps: any,fieldName:string): any {
 
     if( fieldName=='empid'){
         emps.sort((a,b)=>a.empid-b.empid);
