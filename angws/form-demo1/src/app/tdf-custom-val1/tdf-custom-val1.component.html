@@ -1,5 +1,5 @@
 <h3>Registration</h3>
-<form #regForm="ngForm">
+<form #regForm="ngForm"  [textmatch]="['pass','cpass']">
         <table>
                 <tr>
                       <td valign="top">Name<span class="required">*</span></td>
@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                       <td valign="top">Password<span class="required">*</span></td>
-                      <td><input type="text" name="pass" #pass="ngModel" required textmatch="cpass" ngModel>
+                      <td><input type="text" name="pass" #pass="ngModel" required  ngModel>
                         <div *ngIf="pass.touched && pass.errors && pass.errors.required" class="field-error-block">
                               Password Required
                         </div>
@@ -47,8 +47,8 @@
                 </tr>
                 <tr>
                       <td valign="top">Confirm Password<span class="required">*</span></td>
-                      <td><input type="text" name="cpass" #cpass="ngModel" textmatch="pass" ngModel>       
-                      <div *ngIf="cpass.touched && (pass.errors && pass.errors.textmatch) || (cpass.errors && cpass.errors.textmatch)" class="field-error-block">
+                      <td><input type="text" name="cpass" #cpass="ngModel"  ngModel>       
+                      <div *ngIf="cpass.touched && regForm.errors && regForm.errors.textmatch" class="field-error-block">
                               Password and Confirm Password not matched
                   </div>
                   

@@ -17,7 +17,12 @@ export class TdfVal2BsComponent implements OnInit {
 
   onSubmit(){
     console.log(this.empForm.value);
+    const fn=this.empForm.controls['fname']; 
+    const v=fn.value;
+    console.log(v);
 
+
+    
   }
 
   clear()

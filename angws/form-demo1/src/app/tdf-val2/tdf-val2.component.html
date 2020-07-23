@@ -5,7 +5,8 @@
         <form action="" #empForm="ngForm" (submit)="onSubmit()">
                 <div class="error-block" *ngIf="empForm.touched && empForm.invalid">
                         <li *ngIf="fname.errors && fname.errors.required">Name is Required</li>
-                        <li *ngIf="fname.errors && fname.errors.minlength">Name must have minimum {{fname.errors.minlength.requiredLength}} characters</li>
+                        <li *ngIf="fname.errors && fname.errors.minlength">
+                            Name must have minimum {{fname.errors.minlength.requiredLength}} characters</li>
                         <li *ngIf="email.errors">Invalid Email</li>
                     
                 </div>
