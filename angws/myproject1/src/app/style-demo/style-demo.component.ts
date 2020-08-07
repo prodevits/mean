@@ -13,6 +13,7 @@ export class StyleDemoComponent implements OnInit {
   }
 
   bgc = 'red';
+  
   gender='male';
   country='india'
 
