@@ -1,0 +1,9 @@
+<p>Person</p>
+<hr>
+<!-- <app-view-person *ngFor="let p of persons" [person]="p"></app-view-person> -->
+<!-- <div *ngFor="let p of persons" [person]="p"  class="app-view-person"></div> -->
+
+<table border="1" width="400">
+    <tr><th>ID</th><th>NAme</th><th>Ahe</th></tr>
+    <tr *ngFor="let p of persons" [person]="p"  class="app-view-person"   (removePerson)="removePerson($event)" ></tr>
+</table>
