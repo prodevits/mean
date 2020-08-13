@@ -1,0 +1,15 @@
+<p>emps works!</p>
+
+<img src="assets/Loading.gif" width="200" alt="" [hidden]="!loading">
+
+<div [hidden]="loading">
+        <table border="1" width="400">
+                <tr *ngFor="let e of employees">
+                    <td>{{e.empid}}</td>
+                    <td>{{e.name}}</td>
+                    <td>{{e.city}}</td>
+                    <td>{{e.salary}}</td>
+            
+                </tr>
+            </table>
+</div>

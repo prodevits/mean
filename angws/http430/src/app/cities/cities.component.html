@@ -1,0 +1,10 @@
+<p>cities works!</p>
+Enter state code 
+<input type="text" #stcode >
+<button (click)='loadCities(stcode.value)'>Show Cities</button>
+<hr>
+<table>
+<tr *ngFor="let ct of cities">
+    <td>{{ct}}</td>
+</tr>
+</table>

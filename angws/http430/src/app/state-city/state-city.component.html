@@ -1,0 +1,27 @@
+<p>state-city works!</p>
+<table>
+    <tr>
+        <td>         
+            select state : 
+        </td>
+        <td>
+                <select #state (change)="loadCities(state.value)">
+                        <option value="NA">---Select---</option>
+                        <option *ngFor="let st of states" value="{{st.code}}">{{st.name}}</option>
+                    </select>
+        </td>
+    </tr>
+<tr>
+    <td>
+            Select City: 
+    </td>
+    <td>
+            <img src="/assets/Loading.gif" width="30" alt="" [hidden]='!loading'>
+            <select #cts [hidden]='loading'>
+                    <option value="NA">---Select---</option>
+            <option *ngFor="let ct of cities">{{ct}}</option>
+            </select>
+    </td>
+</tr>
+
+</table>
