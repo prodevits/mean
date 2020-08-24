@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { range } from '../validators/range.validator';
+import { fucase } from '../validators/fucase.validator';
 import { AppValidators } from '../validators/app.validators';
-import { checkPass } from '../validators/check_pass.validator';
+
 
 
 @Component({
@@ -18,11 +18,12 @@ export class RfCustomValDemo1Component implements OnInit {
   ngOnInit() {
     this.regForm=new FormGroup({
       gender:new FormControl(),
-      name: new FormControl('',[Validators.required,Validators.minLength(3),AppValidators.fucase]),
-      age: new FormControl('',[Validators.min(18)]),    
+      //name: new FormControl('',[Validators.required,Validators.minLength(3),fucase]),
+      name: new FormControl('',[Validators.required,Validators.minLength(3),AppValidators.firstucase]),
+      age: new FormControl('',[AppValidators.range(18,45)]),    
       email: new FormControl('',[Validators.required,Validators.email]), 
-      salary:new FormControl('',range(3000,50000)),
-      password: new FormControl('',[Validators.required,checkPass]),
+      salary:new FormControl(''),
+      password: new FormControl('',[Validators.required]),
       cpassword: new FormControl(''),   
       
     },AppValidators.textmatch('password','cpassword'));

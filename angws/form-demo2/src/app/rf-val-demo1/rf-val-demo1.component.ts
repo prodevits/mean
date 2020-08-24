@@ -15,14 +15,16 @@ export class RfValDemo1Component implements OnInit {
       gender:new FormControl(),
       name: new FormControl('',Validators.required),
       email: new FormControl('',[Validators.required,Validators.email]), 
-      salary:new FormControl(),
+      salary:new FormControl('',[Validators.max(50000),Validators.min(5000)]),
       nri:new FormControl(false),
       address:new FormGroup({
-        street:new FormControl(),
+        street:new FormControl('',Validators.minLength(4)),
         city: new FormControl('',Validators.required),
         pincode:new FormControl()
       })
     });
+
+
   }
 
   onSubmit(){

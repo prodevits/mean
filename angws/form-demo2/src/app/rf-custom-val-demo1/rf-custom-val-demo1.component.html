@@ -20,9 +20,13 @@
                         <input type="text" formControlName="name" placeholder="Your Name">
                         <div *ngIf="rfc.name.touched && rfc.name.errors" class="text-danger">
                             <div *ngIf="rfc.name.errors.required">Name Required</div>
-                            <div *ngIf="rfc.name.errors.fucase">{{rfc.name.errors.fucase.message}}</div>
+                         
                             <div *ngIf="rfc.name.errors.minlength">Minimum {{rfc.name.errors.minlength.requiredLength}}
                                 Char required</div>
+
+                                <div *ngIf="rfc.name.errors.firstucase">
+                                    {{rfc.name.errors.firstucase.message}}
+                                </div>    
                         </div>
                     </td>
                 </tr>
@@ -31,7 +35,7 @@
                     <td>
                         <input type="text" formControlName="age" placeholder="Your Age">
                         <div *ngIf="rfc.age.touched && rfc.age.errors" class="text-danger">
-                            Minimum Age must be {{rfc.age.errors.min.min}}
+                            {{rfc.age.errors.range | json}}
                         </div>
                     </td>
                 </tr>
@@ -44,13 +48,10 @@
                         </div>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Salary</td>
                     <td>
-                        <input type="text" formControlName="salary">
-                        <div *ngIf="rfc.salary.errors" class="text-danger">Salary must be in range
-                            {{rfc.salary.errors.range.min}} and {{rfc.salary.errors.range.max}}</div>
+                        <input type="text" formControlName="salary">                        
                     </td>
                 </tr>
                 <tr>
@@ -61,9 +62,7 @@
                             <div *ngIf="rfc.password.errors.required" class="text-danger">
                                 Password Required
                              </div>
-                             <div *ngIf="rfc.password.errors.checkPass" class="text-danger">
-                                 {{rfc.password.errors.checkPass.message}}
-                              </div>
+                             
                         </div>
                     </td>
                 </tr>
@@ -71,14 +70,12 @@
                     <td>Confirm Password </td>
                     <td>
                         <input type="text" formControlName="cpassword" placeholder="Your Age">
-                        <div *ngIf="(rfc.password.touched || rfc.cpassword.touched) && regForm.errors && regForm.errors.textmatch" class="text-danger">
-                                Not Matched with Password
-                             </div>
+                        <div *ngIf="regForm.errors && regForm.errors.textmatch"  class="text-danger">
+                            {{regForm.errors.textmatch|json}}
+                        </div>
                     </td>
                 </tr>
             </table>
-
-
             <br>
             <button [disabled]="regForm.invalid">Submit</button>
             <button type="button" (click)="clear()">Clear</button>

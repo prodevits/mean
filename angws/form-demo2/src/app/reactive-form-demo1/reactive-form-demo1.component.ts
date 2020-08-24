@@ -14,7 +14,7 @@ export class ReactiveFormDemo1Component implements OnInit {
 
   ngOnInit() {
     this.regForm=new FormGroup({
-      name: new FormControl(),
+      name: new FormControl('Guest'),
       email: new FormControl(),
       password: new FormControl(),
       city: new FormControl(),
@@ -26,8 +26,7 @@ export class ReactiveFormDemo1Component implements OnInit {
     console.log(this.regForm.value);    
     console.log(this.regForm.value.email); 
     console.log(this.regForm.controls.email.value);
-    console.log(this.regForm.get("email").value);   
-       
+    console.log(this.regForm.get("email").value);          
   }
 
   clear(){

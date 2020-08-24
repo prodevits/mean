@@ -35,7 +35,11 @@
                     <td>Salary</td>
                     <td>
                         <input type="text" formControlName="salary">                  
-                 
+                        <div *ngIf="regForm.controls.salary.errors && regForm.controls.salary.touched">
+ 
+                            <div *ngIf="regForm.controls.salary.errors.min" class="text-danger">Salary can not be less then {{regForm.controls.salary.errors.min.min}}</div>
+                            <div *ngIf="regForm.controls.salary.errors.max" class="text-danger">Salary can not be more then {{regForm.controls.salary.errors.max.max}}</div>
+                        </div  >
                     </td>
                 </tr>
                 <tr>
@@ -52,6 +56,11 @@
                         <td>Street</td>
                         <td>
                             <input type="text" formControlName="street">
+                            <div *ngIf="regForm.controls.address.controls.street.touched && regForm.controls.address.controls.street.errors" class="text-danger">
+                             Minimum {{regForm.controls.address.controls.street.errors.minlength.requiredLength}} characters required
+
+                            </div>
+
                         </td>
                     </tr>
                     <tr>
@@ -86,6 +95,7 @@
                 <td>regForm.value</td>
                 <td>{{regForm.value | json}}</td>
             </tr>
+            
             <tr>
                 <td>regForm.touched</td>
                 <td>{{regForm.touched}}</td>

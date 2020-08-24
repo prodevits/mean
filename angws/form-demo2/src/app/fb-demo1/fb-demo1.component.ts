@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { range } from '../validators/range.validator';
-import { AppValidators } from '../validators/app.validators';
-import { checkPass } from '../validators/check_pass.validator';
+
 
 @Component({
   selector: 'app-fb-demo1',
@@ -18,11 +16,11 @@ export class FbDemo1Component implements OnInit {
   ngOnInit() {
     this.regForm = this.formBuilder.group({
       gender: [],
-      name: ['', [Validators.required, Validators.minLength(3), AppValidators.fucase]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       age: ['', Validators.min(18)],
       email: ['', [Validators.required, Validators.email]],
-      salary: ['', range(3000, 50000)],
-      password: ['', [Validators.required, checkPass]],
+      salary: ['', ],
+      password: ['', [Validators.required]],
       cpassword: [''],
       skills: this.formBuilder.array([]),
       educations: this.formBuilder.array([this.formBuilder.group({
@@ -35,8 +33,6 @@ export class FbDemo1Component implements OnInit {
         city: [],
         pincode:[]
       })
-    }, {
-      validators: AppValidators.textmatch('password', 'cpassword')
     });
   }
 
