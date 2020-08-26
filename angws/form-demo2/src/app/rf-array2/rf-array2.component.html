@@ -1,4 +1,6 @@
-<h2>Form Demo1</h2>
+<h2>Form Array 2</h2>
+<h4>Array of FormGroups</h4>
+<hr>
 <form [formGroup]='regForm' (submit)="onSubmit()">
 <table>
     <tr>
@@ -32,11 +34,10 @@
 <table>
         <tr *ngFor="let edu of educationArray.controls">
               <div [formGroup]="edu">
-                    <td><input type="text" formControlName="title" placeholder="Title"></td>
+                <td><input type="text" formControlName="title" placeholder="Title"></td>
                 <td><input type="text" formControlName="year" placeholder="Year"></td>
                 <td><input type="text" formControlName="result" placeholder="Result"></td>        
- 
-              </div>       </tr>
+               </div>       </tr>
     </table>
 <br>
 <button>Submit</button> 

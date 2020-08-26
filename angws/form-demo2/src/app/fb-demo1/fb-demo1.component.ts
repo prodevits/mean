@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { fucase } from '../validators/fucase.validator';
+import { AppValidators } from '../validators/app.validators';
 
 
 @Component({
@@ -16,10 +18,10 @@ export class FbDemo1Component implements OnInit {
   ngOnInit() {
     this.regForm = this.formBuilder.group({
       gender: [],
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(3),fucase]],
       age: ['', Validators.min(18)],
       email: ['', [Validators.required, Validators.email]],
-      salary: ['', ],
+      salary: ['',AppValidators.range(5000,50000) ],
       password: ['', [Validators.required]],
       cpassword: [''],
       skills: this.formBuilder.array([]),

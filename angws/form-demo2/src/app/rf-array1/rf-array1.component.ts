@@ -14,8 +14,7 @@ export class RfArray1Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.skillsArray=new FormArray([]);
-
+    this.skillsArray=new FormArray([new FormControl('')]);
     
     this.regForm=new FormGroup({
       name: new FormControl(),
@@ -29,6 +28,8 @@ export class RfArray1Component implements OnInit {
   addSkill(){
     this.skillsArray.push(new FormControl(''));
   }
+
+
   removeSkill(index:number){
     this.skillsArray.removeAt(index);
   }
