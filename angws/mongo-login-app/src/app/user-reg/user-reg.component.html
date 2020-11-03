@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h2>User Registration</h2>
+<hr>
+<div class="alert alert-danger" *ngIf="error">
+    {{error}}
+</div>
+<form  #userform="ngForm">
+    Enter Userid    <br>
+<input type="text" name="userid" ngModel>   <br><br>
+Enter Password  <br>
+<input type="password" name="password" ngModel><br><br>
+Enter Name  <br>
+<input type="text" name="name" ngModel><br><br>
+Enter Mobile No  <br>
+<input type="text" name="mobile" ngModel><br><br>
+Enter City  <br>
+<input type="text" name="city" ngModel><br><br>
+<button type="button" (click)="addUser()">Submit</button>
+</form>
+
+    </div>
+</div>

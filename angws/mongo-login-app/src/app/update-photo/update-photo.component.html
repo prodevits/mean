@@ -1,0 +1,56 @@
+<div class="row p-3">
+
+    <div class="col-md-4 m-auto" >
+          
+        <form [formGroup]="regForm" (submit)="onSubmit()">
+            <div class="card border border-primary">
+                <div class="card-header bg-primary text-light">
+                    <h4 class="text-center" *ngIf="editMode">Upload Profile Photo</h4>
+                    <h4 class="text-center" *ngIf="!editMode">Current Profile Photo</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">                          
+                                <div *ngIf="error" class="alert alert-danger">
+                                    {{error}}
+                                </div>
+                                <div class="card border border-info">
+                                    <img  [src]="currentPic" class="card-img-top" alt="">
+                                   <div *ngIf="regForm.controls.photo.errors && regForm.controls.photo.errors.image"
+                                        class="alert alert-danger fixed-bottom" style="position:absolute">
+                                        Invalid File Format
+                                    </div>
+
+                                    <div *ngIf="regForm.controls.photo.touched && regForm.controls.photo.errors && regForm.controls.photo.errors.required"
+                                        class="alert alert-danger fixed-bottom" style="position:absolute">
+                                        Select Photo
+                                    </div>
+
+                                </div>
+
+                                <div class="card border-0 mt-1">
+                                    <button type="button" class="btn btn-info" (click)="image.click()">
+                                        {{currentPic?'Change':'Select New Photo'}}
+                                    </button>
+                                </div>
+
+                                <input type="file" #image class="form-control" hidden="true" (change)="preview()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer" *ngIf="editMode">
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary"  [disabled]="regForm.invalid">SAVE</button>
+                    </div>
+                </div>
+                <div  *ngIf="success" class="card-footer bg-success">
+                        {{success}}
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
