@@ -1,0 +1,48 @@
+<div class="row mt-3">
+        <div class="card bg-info text-light col-md-5  p-3  m-auto">
+                <h4>Change Your Password</h4>
+            </div> 
+</div>
+<div class="row mt-2">
+        <div class="col-md-5 border border-primary p-3  m-auto ">  
+            <form [formGroup]='form' (submit)="onSubmit()" >   
+                <div *ngIf="loginError" class="alert alert-danger">Invalid Id / Password</div>             
+                <div class="form-group form-row">
+                        <label for="" class="col-md-4 col-form-label">Current Password</label>
+                        <div class="col-md-8">
+                            <input type="password" class="form-control" formControlName="cpassword" >
+                            <div *ngIf="cpassword.touched && cpassword.errors" class="text-danger"> Required</div>
+
+                        </div>
+                    </div>  
+                    <div class="form-group form-row">
+                            <label for="" class="col-md-4 col-form-label">New Password</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" formControlName="npassword" >
+                                <div *ngIf="npassword.touched && npassword.errors" class="text-danger"> Required</div>
+
+          
+                            </div>
+                          
+                        </div>
+
+                <div class="form-group form-row">
+                    <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                    <div class="col-md-8">
+                        <input type="password" class="form-control" formControlName="ncpassword" >
+                        <div *ngIf="ncpassword  Q12\                                                     .0.                             )O?P:{]}
+                        |
+                        ouched && form.errors && form.errors.textmatch" class="text-danger">Not Matched</div>
+
+
+          
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="m-auto">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>    
+    </div>
