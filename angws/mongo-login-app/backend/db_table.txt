@@ -1,0 +1,9 @@
+ CREATE TABLE user_table (                
+              userid VARCHAR(20) PRIMARY KEY,           
+              name VARCHAR(50) NOT NULL,             
+              password VARCHAR(10) NOT NULL,         
+              mobile_no VARCHAR(20),    
+              city VARCHAR(20) ,         
+              profile_pic VARCHAR(50) ,  
+              role VARCHAR(10) DEFAULT 'USER'       
+            )
