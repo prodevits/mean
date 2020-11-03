@@ -10,6 +10,8 @@ import { AppValidators } from '../validators/app.validators';
 })
 export class ChangePassComponent implements OnInit {
   form:FormGroup;
+  status=undefined;
+  message=undefined;
   constructor(private userService:UserService) { }
 
   get cpassword(){
@@ -36,7 +38,11 @@ this.form=new FormGroup({
   onSubmit(){
     console.log(this.form.value);
     this.userService.changePassword(this.form.value.cpassword,this.form.value.npassword).subscribe(response=>{
-      console.log(response);      
+      this.status=response.status;
+      this.message=response.message;
+      if(response.status=='success'  ){
+          this.form.reset();
+        }
     });
   }
 
