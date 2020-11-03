@@ -16,12 +16,11 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.userHttpService.getAllUsers().subscribe((data:User[])=>{
+      console.log(data);      
       if(data!=null && data.length>0){
         data.map(u=>u.photo=this.userHttpService.baseUrl+u.photo);
         this.users=data;
-      }
-    
+      } 
     });
   }
-
 }

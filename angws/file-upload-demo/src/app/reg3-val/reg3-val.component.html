@@ -1,10 +1,9 @@
-
 <div class="row">
     <div class="col-md-6 m-auto">
         <form [formGroup]="regForm" (submit)="onSubmit()">
             <div class="card border border-primary">
                 <div class="card-header bg-primary text-light">
-                        <h3 class="text-center">Registration</h3>
+                    <h3 class="text-center">Registration</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -33,7 +32,8 @@
                                     <img [hidden]="!imagePreview" [src]="imagePreview" class="card-img-top "
                                         height="120" alt="">
 
-                                    <div *ngIf="regForm.controls.photo.invalid" class="alert alert-danger fixed-bottom" style="position:absolute">
+                                    <div *ngIf="regForm.controls.photo.invalid" class="alert alert-danger fixed-bottom"
+                                        style="position:absolute">
                                         Invalid File Format
                                     </div>
 

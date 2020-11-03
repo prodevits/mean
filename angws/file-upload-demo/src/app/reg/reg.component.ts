@@ -23,10 +23,10 @@ export class RegComponent implements OnInit {
   }
 
   onSubmit() {
-    const file = (this.imageInput.nativeElement as HTMLInputElement).files[0];
-     this.regForm.patchValue({ "photo": file });
-     console.log(file);
-     
+    const htmlFileInput=this.imageInput.nativeElement as HTMLInputElement;
+    const file = htmlFileInput.files[0];
+    console.log(file); 
+     this.regForm.patchValue({ "photo": file });    
     this.userHttpService.saveReg(this.regForm.value).subscribe(data => {
       console.log(data);
       this.router.navigateByUrl("users");

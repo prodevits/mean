@@ -15,8 +15,7 @@ constructor(private httpClient:HttpClient){}
         form.append("name",regData.name);
         form.append("age",regData.age);
         form.append("photo",regData.photo);         
-        return this.httpClient.post<string>(this.url,form);
-      
+        return this.httpClient.post<string>(this.url,form);      
     }
 
     getAllUsers():Observable<User[]>{

@@ -25,21 +25,31 @@ export class Reg2Component implements OnInit {
 
 
   preview() {
-    const file = (this.imageInput.nativeElement as HTMLInputElement).files[0];
-    console.log(file);
-    const reader=new FileReader();
+
+    const reader=new FileReader();  
+    
     reader.onload=()=>{
       this.imagePreview = reader.result as string;
     }
+
+            // const htmlFileInput=this.imageInput.nativeElement as HTMLInputElement;
+    // const file = htmlFileInput.files[0];
+
+    const file = (this.imageInput.nativeElement as HTMLInputElement).files[0];
+    //console.log(file);
+    console.log(file.type);
+    
+    
     reader.readAsDataURL(file);  
   }
 
   onSubmit() {
+    // const htmlFileInput=this.imageInput.nativeElement as HTMLInputElement;
+    // const file = htmlFileInput.files[0];
+
     const file = (this.imageInput.nativeElement as HTMLInputElement).files[0];
      this.regForm.patchValue({ "photo": file });
-     console.log(file);
-     
-    this.userHttpService.saveReg(this.regForm.value).subscribe(data => {
+     this.userHttpService.saveReg(this.regForm.value).subscribe(data => {
       console.log(data);
       this.router.navigateByUrl("users");
     })
