@@ -7,3 +7,6 @@
               profile_pic VARCHAR(50) ,  
               role VARCHAR(10) DEFAULT 'USER'       
             )
+
+#add entry for ADMIN
+insert  into user_table(userid,name,password,mobile_no,city,profile_pic,role) values ('101','raman singh ','a','99887766','akola','131009222.jpg','ADMIN')            
