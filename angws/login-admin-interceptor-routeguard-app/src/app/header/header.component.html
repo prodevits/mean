@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm  bg-dark navbar-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Welcome {{uname}}</a>
+        <a routerLink="/update-photo">
+        <img src="{{pic}}" alt="" width="30" height="30" *ngIf="pic" class="rounded-circle">
+      </a>
+      </div>
+      <ul class="navbar-nav" *ngIf="userLoggedIn">
+            <li class="nav-item" routerLinkActive='active'>
+                    <a class="nav-link" routerLink="/user-home">Home</a>
+                  </li>   
+                  <li class="nav-item" routerLinkActive='active' *ngIf="role=='ADMIN'">
+                      <a class="nav-link" routerLink="/users">Users List</a>
+                    </li>   
+         <!-- Dropdown -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Profile
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/myprofile">Personal details</a>
+          <a class="dropdown-item" routerLink="/update-photo">Photo</a>
+        </div>
+      </li>
+      <li class="nav-item" routerLinkActive='active'>
+          <a class="nav-link" routerLink="/changepass">change password</a>
+        </li>   
+        <li class="nav-item" routerLinkActive='active'>
+          <a class="nav-link" routerLink="/logout">Logout</a>
+        </li> 
+      </ul>
+
+      <ul class="navbar-nav" *ngIf="!userLoggedIn">
+          <li class="nav-item" routerLinkActive='active'>
+                  <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+                <li class="nav-item" routerLinkActive='active'>
+                    <a class="nav-link" routerLink="/reg">Registeration</a>
+                  </li>
+                </ul>
+    </div>
+  </nav>
+  
+  <!--The content below is only a placeholder and can be replaced.-->
+  
